@@ -21,3 +21,4 @@ Plugins to add
 - [ ] bufferline
 - [ ] harpoon
 - [ ] telescope-undo
+- [ ] lazygit
