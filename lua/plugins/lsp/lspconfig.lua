@@ -50,17 +50,18 @@ return {
          on_attach = on_attach,
        })
       end,
-      ["lua_ls"] = function(server)
-        lspconfig[server].setup({
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = "Replace"
-              }
-            }
-          }
-        })
-      end
     }
+
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        Lua = {
+          completion = {
+            callSnippet = "Replace"
+          }
+        }
+      }
+    })
   end
 }

@@ -7,10 +7,10 @@ Plugins to add
 - [x] mason
 - [x] cmp
 - [x] neodev
-- [ ] nvim-surround
+- [x] nvim-surround
 - [x] catppuccin
-- [ ] treesitter
-- [ ] lualine
+- [x] treesitter
+- [x] lualine
 - [ ] flash
 - [ ] gitsigns
 - [ ] indent-blankline
@@ -21,4 +21,4 @@ Plugins to add
 - [ ] bufferline
 - [ ] harpoon
 - [ ] telescope-undo
-- [ ] lazygit
+- [x] lazygit
