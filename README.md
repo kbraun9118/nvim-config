@@ -1,6 +1,6 @@
 Plugins to add 
 - [x] lazy
-- [ ] neo-tree
+- [x] neo-tree
 - [ ] telescope
 - [ ] nvim-lspconfig
 - [ ] mason
