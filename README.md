@@ -2,20 +2,20 @@ Plugins to add
 - [x] lazy
 - [x] neo-tree
 - [x] nvim-autopairs
-- [ ] telescope
-- [ ] nvim-lspconfig
-- [ ] mason
-- [ ] cmp
-- [ ] neodev
+- [x] telescope
+- [x] nvim-lspconfig
+- [x] mason
+- [x] cmp
+- [x] neodev
 - [ ] nvim-surround
-- [ ] catppuccin
+- [x] catppuccin
 - [ ] treesitter
 - [ ] lualine
 - [ ] flash
 - [ ] gitsigns
 - [ ] indent-blankline
 - [ ] comment
-- [ ] which-key
+- [ ] which-key (installed, but needs to be configured)
 - [ ] nvim-notify
 - [ ] dressing
 - [ ] bufferline

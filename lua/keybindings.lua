@@ -12,3 +12,8 @@ keymap.set("n", "L", "$")
 keymap.set("v", "L", "$")
 keymap.set("n", "H", "^")
 keymap.set("v", "H", "^")
+
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to split left" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to split left" })
+
+keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
