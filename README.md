@@ -1,5 +1,5 @@
 Plugins to add 
-- [ ] lazy
+- [x] lazy
 - [ ] neo-tree
 - [ ] telescope
 - [ ] nvim-lspconfig
