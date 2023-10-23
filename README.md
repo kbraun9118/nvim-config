@@ -1,6 +1,7 @@
 Plugins to add 
 - [x] lazy
 - [x] neo-tree
+- [x] nvim-autopairs
 - [ ] telescope
 - [ ] nvim-lspconfig
 - [ ] mason
@@ -14,7 +15,6 @@ Plugins to add
 - [ ] gitsigns
 - [ ] indent-blankline
 - [ ] comment
-- [ ] nvim-autopairs
 - [ ] which-key
 - [ ] nvim-notify
 - [ ] dressing
