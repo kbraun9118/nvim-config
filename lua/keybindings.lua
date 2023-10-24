@@ -14,7 +14,9 @@ keymap.set("n", "H", "^")
 keymap.set("v", "H", "^")
 
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to split left" })
-keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to split left" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to split right" })
+keymap.set("n", "<C-K>", "<C-w>k", { desc = "Move to split up" })
+keymap.set("n", "<C-J>", "<C-w>j", { desc = "Move to split down" })
 
 keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
 keymap.set("n", "<leader>q", "<cmd>qa<CR>", { desc = "Close nvim" })
