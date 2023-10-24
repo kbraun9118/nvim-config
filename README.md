@@ -11,13 +11,13 @@ Plugins to add
 - [x] catppuccin
 - [x] treesitter
 - [x] lualine
-- [ ] flash
-- [ ] gitsigns
+- [x] flash
+- [x] gitsigns
 - [ ] indent-blankline
 - [ ] comment
 - [ ] which-key (installed, but needs to be configured)
 - [ ] nvim-notify
-- [ ] dressing
+- [x] dressing
 - [ ] bufferline
 - [ ] harpoon
 - [ ] telescope-undo
