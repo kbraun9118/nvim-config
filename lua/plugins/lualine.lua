@@ -3,7 +3,7 @@ return {
   dependencies = {
     { 'nvim-tree/nvim-web-devicons', opt = true }
   },
-  config = function() 
+  config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
 

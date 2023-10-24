@@ -21,6 +21,7 @@ Plugins to add
 - [x] telescope-undo
 - [ ] null-ls
 - [x] lazygit
+- [x] nvim-colorizer
 
 Plugins to think about
 - [ ] harpoon
