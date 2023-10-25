@@ -17,10 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{ import = "plugins" },
 	{ import = "plugins.lsp" },
+	{ import = "plugins.treesitter" },
+	{ import = "plugins.ui" },
 }, {
 	checker = {
 		notify = false,
 	},
 })
 
-vim.keymap.set("n", "<leader>pl", "<cmd>Lazy<CR>", { desc = "Open lazy config" })
+vim.keymap.set("n", "<leader>pl", "<cmd>Lazy<CR>", { desc = "Open Lazy" })

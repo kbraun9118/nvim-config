@@ -21,8 +21,8 @@ return {
 			end
 
 			setkey("gr", "<cmd>Telescope lsp_references<CR>", "Show LSP references")
-			setkey("gd", vim.lsp.buf.declaration, "Goto Declaration")
-			setkey("gD", "<cmd>Telescope lsp_definitions<CR>", "Show LSP definitions")
+			setkey("gD", vim.lsp.buf.declaration, "Goto Declaration")
+			setkey("gd", "<cmd>Telescope lsp_definitions<CR>", "Show LSP definitions")
 			setkey("gi", "<cmd>Telescope lsp_implementations<CR>", "Show LSP implementations")
 			setkey("gt", "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions")
 			setkey("<leader>la", vim.lsp.buf.code_action, "See available code actions")
