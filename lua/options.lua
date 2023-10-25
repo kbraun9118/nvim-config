@@ -38,4 +38,8 @@ opt.swapfile = false
 opt.backup = false
 opt.undofile = true
 
+-- duplicate of lualine
 opt.showmode = false
+
+-- always show 8 lines above or below
+opt.scrolloff = 8

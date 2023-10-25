@@ -26,6 +26,8 @@
 - [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [harpoon](https://github.com/ThePrimeagen/harpoon)
+- [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
+- [barbecue](https://github.com/utilyre/barbecue.nvim)
 
 ## Plugins to think about
 
