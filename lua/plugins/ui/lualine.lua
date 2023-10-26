@@ -4,6 +4,7 @@ return {
     { "nvim-tree/nvim-web-devicons", opt = true },
     { "linrongbin16/lsp-progress.nvim" }
   },
+  event = "VeryLazy",
   config = function()
     local lsp_progress = require("lsp-progress")
     local lualine = require("lualine")

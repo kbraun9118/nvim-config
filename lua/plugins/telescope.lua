@@ -10,6 +10,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"debugloop/telescope-undo.nvim",
 	},
+  event = "VeryLazy",
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")

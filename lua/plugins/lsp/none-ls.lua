@@ -5,6 +5,7 @@ return {
 		cmd = { "NullLsInstall", "NullLsUninstall" },
 		opts = { handlers = {} },
 	},
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
