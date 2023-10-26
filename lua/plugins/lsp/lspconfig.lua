@@ -15,7 +15,7 @@ return {
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local mason_lspconfig = require("mason-lspconfig")
 
-		local on_attach = function(_, bufnr)
+		local on_attach = function(client, bufnr)
 			local setkey = function(keys, cmd, desc)
 				vim.keymap.set("n", keys, cmd, { noremap = true, silent = true, desc = desc, buffer = bufnr })
 			end
@@ -36,6 +36,10 @@ return {
 			setkey("<leader>lf", function()
 				vim.lsp.buf.format({ async = true })
 			end, "Format buffer")
+			if client.supports_method("workspace/symbol") then
+				setkey("<leader>fm", "<cmd>Telescope lsp_workspace_symbols<CR>", "Fuzzy find LSP symbols in workspace")
+				setkey("<leader>fy", "<cmd>Telescope lsp_document_symbols<CR>", "Fuzzy find LSP symbols in document")
+			end
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()

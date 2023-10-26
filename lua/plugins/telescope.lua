@@ -47,18 +47,6 @@ return {
 			"<cmd>Telescope grep_string<CR>",
 			{ desc = "Fuzzy find string under cursor in cwd" }
 		)
-		vim.keymap.set(
-			"n",
-			"<leader>fm",
-			"<cmd>Telescope lsp_workspace_symbols<CR>",
-			{ desc = "Fuzzy find LSP symbols in workspace" }
-		)
-		vim.keymap.set(
-			"n",
-			"<leader>fy",
-			"<cmd>Telescope lsp_workspace_symbols<CR>",
-			{ desc = "Fuzzy find LSP symbols in workspace" }
-		)
 		vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Open undo tree" })
 	end,
 }

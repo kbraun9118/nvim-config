@@ -26,7 +26,6 @@ return {
 				"rust",
 				"ocaml",
 				"go",
-				"svelte",
 			},
 		})
 	end,

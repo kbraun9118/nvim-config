@@ -24,17 +24,26 @@ return {
 
 		require("nvim-tree").setup({
 			view = {
-				width = 40,
+				width = {
+					min = 30,
+					max = 60,
+				},
 				relativenumber = true,
 			},
 			on_attach = on_attach,
 			filters = {
+				git_ignored = false,
 				custom = {
 					"^\\.git$",
 				},
 			},
 			update_focused_file = {
 				enable = true,
+			},
+			renderer = {
+				icons = {
+					git_placement = "after",
+				},
 			},
 		})
 

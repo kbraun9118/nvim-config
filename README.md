@@ -28,8 +28,8 @@
 - [harpoon](https://github.com/ThePrimeagen/harpoon)
 - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - [barbecue](https://github.com/utilyre/barbecue.nvim)
+- [flash](https://github.com/folke/flash.nvim)
 
 ## Plugins to think about
 
 - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
-- [flash](https://github.com/folke/flash.nvim)
