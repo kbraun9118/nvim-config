@@ -53,6 +53,12 @@ return {
 			"<cmd>Telescope lsp_workspace_symbols<CR>",
 			{ desc = "Fuzzy find LSP symbols in workspace" }
 		)
+		vim.keymap.set(
+			"n",
+			"<leader>fy",
+			"<cmd>Telescope lsp_workspace_symbols<CR>",
+			{ desc = "Fuzzy find LSP symbols in workspace" }
+		)
 		vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Open undo tree" })
 	end,
 }

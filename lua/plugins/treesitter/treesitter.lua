@@ -27,7 +27,6 @@ return {
 				"ocaml",
 				"go",
 				"svelte",
-				"vue",
 			},
 		})
 	end,

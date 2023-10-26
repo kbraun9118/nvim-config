@@ -32,7 +32,6 @@ return {
 				"lua_ls",
 				"volar",
 				"sqlls",
-				"java_language_server",
 				"gradle_ls",
 				"gopls",
 				"dockerls",
