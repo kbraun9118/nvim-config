@@ -1,33 +1,16 @@
 return {
-	"nvimtools/none-ls.nvim",
-	dependencies = {
-		"jay-babu/mason-null-ls.nvim",
-		cmd = { "NullLsInstall", "NullLsUninstall" },
-		opts = { handlers = {} },
-	},
-	event = { "BufReadPre", "BufNewFile" },
-	config = function()
-		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+  "nvimtools/none-ls.nvim",
+  dependencies = {
+    "jay-babu/mason-null-ls.nvim",
+    cmd = { "NullLsInstall", "NullLsUninstall" },
+    opts = { handlers = {} },
+  },
+  event = { "BufReadPre", "BufNewFile" },
+  config = function()
+    require("null-ls").setup({})
 
-		require("null-ls").setup({
-			on_attach = function(client, bufnr)
-				if client.supports_method("textDocument/formatting") then
-					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = augroup,
-						buffer = bufnr,
-						callback = function()
-							-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-							-- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
-							vim.lsp.buf.format({ async = false })
-						end,
-					})
-				end
-			end,
-		})
-
-		require("mason-null-ls").setup({
-			ensure_installed = { "eslint_d" },
-		})
-	end,
+    require("mason-null-ls").setup({
+      ensure_installed = { "eslint_d" },
+    })
+  end,
 }
