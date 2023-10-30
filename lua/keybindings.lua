@@ -11,11 +11,15 @@ keymap.set({ "i", "v" }, "<C-c>", "<Esc>", { desc = "Exit insert mode" })
 keymap.set({ "n", "v" }, "L", "$")
 keymap.set({ "n", "v" }, "H", "^")
 
+-- splitting
+keymap.set("n", "<leader>v", "<cmd>vsplit", { desc = "Split veritically" })
+keymap.set("n", "<leader>v", "<cmd>split", { desc = "Split horizontally" })
+
 -- Moving between splits
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to split left" })
 keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to split right" })
-keymap.set("n", "<C-K>", "<C-w>k", { desc = "Move to split up" })
-keymap.set("n", "<C-J>", "<C-w>j", { desc = "Move to split down" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to split up" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to split down" })
 
 -- Saving and closing
 keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })

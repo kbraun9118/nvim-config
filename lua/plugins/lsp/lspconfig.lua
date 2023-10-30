@@ -42,6 +42,19 @@ return {
 			end
 
 			vim.diagnostic.config({ update_in_insert = true })
+
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+			if client.supports_method("textDocument/formatting") then
+				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					group = augroup,
+					buffer = bufnr,
+					callback = function()
+						vim.lsp.buf.format({ async = false })
+					end,
+				})
+			end
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -52,6 +65,12 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		-- let opam installed lsp take over
+		lspconfig["ocamllsp"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		mason_lspconfig.setup_handlers({
 			function(server)
 				lspconfig[server].setup({
@@ -59,18 +78,20 @@ return {
 					on_attach = on_attach,
 				})
 			end,
-		})
-
-		lspconfig.lua_ls.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				Lua = {
-					completion = {
-						callSnippet = "Replace",
+			["lua_ls"] = function(server)
+				lspconfig[server].setup({
+					capabilities = capabilities,
+					on_attach = on_attach,
+					settings = {
+						Lua = {
+							completion = {
+								callSnippet = "Replace",
+							},
+							workspace = { checkThirdParty = false },
+						},
 					},
-				},
-			},
+				})
+			end,
 		})
 	end,
 }
