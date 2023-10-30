@@ -40,6 +40,8 @@ return {
 				setkey("<leader>fm", "<cmd>Telescope lsp_workspace_symbols<CR>", "Fuzzy find LSP symbols in workspace")
 				setkey("<leader>fy", "<cmd>Telescope lsp_document_symbols<CR>", "Fuzzy find LSP symbols in document")
 			end
+
+			vim.diagnostic.config({ update_in_insert = true })
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
