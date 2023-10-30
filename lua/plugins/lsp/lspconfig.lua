@@ -1,24 +1,24 @@
 return {
-	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		"nvim-lua/plenary.nvim",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-		"williamboman/mason-lspconfig.nvim",
-		"folke/neodev.nvim",
-	},
-	config = function()
-		require("neodev").setup({})
-		local lspconfig = require("lspconfig")
+  "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "nvim-lua/plenary.nvim",
+    { "antosha417/nvim-lsp-file-operations", config = true },
+    "williamboman/mason-lspconfig.nvim",
+    "folke/neodev.nvim",
+  },
+  config = function()
+    require("neodev").setup({})
+    local lspconfig = require("lspconfig")
 
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local mason_lspconfig = require("mason-lspconfig")
+    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local mason_lspconfig = require("mason-lspconfig")
 
-		local on_attach = function(client, bufnr)
-			local setkey = function(keys, cmd, desc)
-				vim.keymap.set("n", keys, cmd, { noremap = true, silent = true, desc = desc, buffer = bufnr })
-			end
+    local on_attach = function(client, bufnr)
+      local setkey = function(keys, cmd, desc)
+        vim.keymap.set("n", keys, cmd, { noremap = true, silent = true, desc = desc, buffer = bufnr })
+      end
 
 			setkey("gr", "<cmd>Telescope lsp_references<CR>", "Show LSP references")
 			setkey("gD", vim.lsp.buf.declaration, "Goto Declaration")
@@ -43,55 +43,55 @@ return {
 
 			vim.diagnostic.config({ update_in_insert = true })
 
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-			if client.supports_method("textDocument/formatting") then
-				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = augroup,
-					buffer = bufnr,
-					callback = function()
-						vim.lsp.buf.format({ async = false })
-					end,
-				})
-			end
-		end
+      if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = augroup,
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({ async = false })
+          end,
+        })
+      end
+    end
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    for type, icon in pairs(signs) do
+      local hl = "DiagnosticSign" .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    end
 
-		-- let opam installed lsp take over
-		lspconfig["ocamllsp"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+    -- let opam installed lsp take over
+    lspconfig['ocamllsp'].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
 
-		mason_lspconfig.setup_handlers({
-			function(server)
-				lspconfig[server].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-				})
-			end,
-			["lua_ls"] = function(server)
-				lspconfig[server].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-					settings = {
-						Lua = {
-							completion = {
-								callSnippet = "Replace",
-							},
-							workspace = { checkThirdParty = false },
-						},
-					},
-				})
-			end,
-		})
-	end,
+    mason_lspconfig.setup_handlers({
+      function(server)
+        lspconfig[server].setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+        })
+      end,
+      ['lua_ls'] = function(server)
+        lspconfig[server].setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = "Replace",
+              },
+              workspace = { checkThirdParty = false },
+            },
+          },
+        })
+      end
+    })
+  end,
 }
