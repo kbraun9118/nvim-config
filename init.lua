@@ -23,6 +23,9 @@ require("lazy").setup({
 	checker = {
 		notify = false,
 	},
+	ui = {
+		border = "rounded",
+	},
 })
 
 vim.keymap.set("n", "<leader>pl", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
