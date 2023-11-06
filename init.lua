@@ -21,6 +21,7 @@ require("lazy").setup({
 	{ import = "plugins.ui" },
 }, {
 	checker = {
+		enabled = true,
 		notify = false,
 	},
 	ui = {
