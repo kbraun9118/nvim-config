@@ -34,24 +34,8 @@ return {
       setkey("]d", vim.diagnostic.goto_prev, "Goto next diagnostic")
       setkey("K", vim.lsp.buf.hover, "Show documentation")
       setkey("<leader>ls", "<cmd>LspRestart<CR>", "Restart LSP")
-      setkey("<leader>lf", function()
-        vim.lsp.buf.format({ async = true })
-      end, "Format buffer")
 
       vim.diagnostic.config({ update_in_insert = true })
-
-      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-      if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          group = augroup,
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format({ async = false })
-          end,
-        })
-      end
     end
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
