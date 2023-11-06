@@ -12,8 +12,8 @@ keymap.set({ "n", "v" }, "L", "$")
 keymap.set({ "n", "v" }, "H", "^")
 
 -- splitting
-keymap.set("n", "<leader>v", "<cmd>vsplit", { desc = "Split veritically" })
-keymap.set("n", "<leader>v", "<cmd>split", { desc = "Split horizontally" })
+keymap.set("n", "<leader>v", "<cmd>vsplit<CR>", { desc = "Split veritically" })
+keymap.set("n", "<leader>|", "<cmd>split<CR>", { desc = "Split horizontally" })
 
 -- Moving between splits
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to split left" })
