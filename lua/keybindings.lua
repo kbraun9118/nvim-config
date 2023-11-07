@@ -34,3 +34,7 @@ keymap.set("n", "<S-Tab>", "<<", { desc = "Unindent" })
 
 -- Clear search
 keymap.set("n", "<leader>z", "<cmd>noh<CR>", { desc = "Clear search" })
+
+-- Buffers
+keymap.set("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Buffer next" })
+keymap.set("n", "<leader>bp", "<cmd>bprev<cr>", { desc = "Buffer next" })
