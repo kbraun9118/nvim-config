@@ -71,6 +71,12 @@ return {
 			on_attach = on_attach,
 			handlers = handlers,
 		})
+		lspconfig["sourcekit"].setup({
+			filetypes = { "swift" },
+			capabilities = capabilities,
+			on_attach = on_attach,
+			handlers = handlers,
+		})
 
 		mason_lspconfig.setup_handlers({
 			function(server)
