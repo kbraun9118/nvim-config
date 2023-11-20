@@ -2,7 +2,6 @@ return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
     "windwp/nvim-ts-autotag",
-    "JoosepAlviste/nvim-ts-context-commentstring",
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   event = { "BufReadPre", "BufNewFile" },
@@ -13,9 +12,6 @@ return {
       },
       auto_install = true,
       autotag = {
-        enable = true,
-      },
-      context_commentstring = {
         enable = true,
       },
       ensure_installed = {
