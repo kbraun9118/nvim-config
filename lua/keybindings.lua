@@ -38,3 +38,7 @@ keymap.set("n", "<leader>z", "<cmd>noh<CR>", { desc = "Clear search" })
 -- Buffers
 keymap.set("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Buffer next" })
 keymap.set("n", "<leader>bp", "<cmd>bprev<cr>", { desc = "Buffer next" })
+
+-- Move Selections
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection up" })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection down" })
