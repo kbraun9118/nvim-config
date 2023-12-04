@@ -18,6 +18,7 @@ return {
 			e = { "Tree" },
 			h = { "Harpoon" },
 			s = { "Flash" },
+			d = { "DAP" },
 		}, { prefix = "<leader>" })
 	end,
 }
