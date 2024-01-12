@@ -28,7 +28,6 @@ return {
 				"tailwindcss",
 				"svelte",
 				"prismals",
-				"pyright",
 				"rust_analyzer",
 				"lua_ls",
 				"volar",
