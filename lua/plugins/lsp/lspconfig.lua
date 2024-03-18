@@ -72,6 +72,11 @@ return {
 			on_attach = on_attach,
 			handlers = handlers,
 		})
+		lspconfig["gleam"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			handlers = handlers,
+		})
 		lspconfig["sourcekit"].setup({
 			filetypes = { "swift" },
 			capabilities = capabilities,
