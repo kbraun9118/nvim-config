@@ -40,6 +40,9 @@ return {
 		end,
 	},
 	{
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+		},
 		"rcarriga/nvim-dap-ui",
 		config = function()
 			local dapui = require("dapui")
