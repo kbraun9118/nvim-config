@@ -19,6 +19,7 @@ require("lazy").setup({
 	{ import = "plugins.lsp" },
 	{ import = "plugins.treesitter" },
 	{ import = "plugins.ui" },
+	{ import = "plugins.languages.typescript" },
 }, {
 	checker = {
 		enabled = true,
