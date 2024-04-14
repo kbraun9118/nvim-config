@@ -30,6 +30,7 @@ return {
 			setkey("<leader>lr", vim.lsp.buf.rename, "Smart rename")
 			setkey("<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show buffer diagnostics")
 			setkey("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
+			setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart")
 			setkey("[d", vim.diagnostic.goto_prev, "Goto previous diagnostic")
 			setkey("]d", vim.diagnostic.goto_prev, "Goto next diagnostic")
 			setkey("K", vim.lsp.buf.hover, "Show documentation")
