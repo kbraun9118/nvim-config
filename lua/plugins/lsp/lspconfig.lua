@@ -19,7 +19,7 @@ return {
 				vim.keymap.set("n", keys, cmd, { noremap = true, silent = true, desc = desc, buffer = bufnr })
 			end
 
-			-- vim.lsp.inlay_hint.enable(bufnr, true)
+			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
 			setkey("gr", "<cmd>Telescope lsp_references<CR>", "Show LSP references")
 			setkey("gD", vim.lsp.buf.declaration, "Goto Declaration")
@@ -54,7 +54,6 @@ return {
 				})
 			end
 		end
-
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 		local handlers = {
