@@ -55,11 +55,13 @@ return {
 						{ "harpoon2" },
 						{
 							lazy_status.updates,
+							icon = "🦥",
 							cond = lazy_status.has_updates,
 							color = { fg = "#ff9e64" },
 						},
 						{
 							lualine_mason_updates,
+							icon = "🧱",
 							color = { fg = "#aa4a44" },
 						},
 						{ "fileformat" },
