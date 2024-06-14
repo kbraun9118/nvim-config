@@ -22,7 +22,6 @@ return {
 				"html",
 				"css",
 				"rust",
-				"ocaml",
 				"go",
 			},
 		})
