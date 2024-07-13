@@ -1,5 +1,8 @@
 return {
 	"folke/which-key.nvim",
+	dependencies = {
+		"echasnovski/mini.icons",
+	},
 	event = "VeryLazy",
 	init = function()
 		vim.o.timeout = true
@@ -9,16 +12,16 @@ return {
 	config = function()
 		local wk = require("which-key")
 
-		wk.register({
-			p = { "Packages" },
-			f = { "Fuzzy Find" },
-			l = { "LSP functions" },
-			g = { "Git" },
-			b = { "Buffer" },
-			e = { "Tree" },
-			h = { "Harpoon" },
-			s = { "Flash" },
-			d = { "DAP" },
-		}, { prefix = "<leader>" })
+		wk.add({
+			{ "<leader>b", desc = "Buffer" },
+			{ "<leader>d", desc = "DAP" },
+			{ "<leader>e", desc = "Tree" },
+			{ "<leader>f", desc = "Fuzzy Find" },
+			{ "<leader>g", desc = "Git" },
+			{ "<leader>h", desc = "Harpoon" },
+			{ "<leader>l", desc = "LSP functions" },
+			{ "<leader>p", desc = "Packages" },
+			{ "<leader>s", desc = "Flash" },
+		})
 	end,
 }
