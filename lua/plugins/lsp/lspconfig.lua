@@ -96,7 +96,8 @@ return {
 
 		mason_lspconfig.setup_handlers({
 			function(server)
-				lspconfig[server].setup({
+				local server_name = server == "tsserver" and "ts_ls" or server
+				lspconfig[server_name].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
 					handlers = handlers,

@@ -55,7 +55,6 @@ return {
 						{ "harpoon2" },
 						{
 							lazy_status.updates,
-							icon = "🦥",
 							cond = lazy_status.has_updates,
 							color = { fg = "#ff9e64" },
 						},
