@@ -78,12 +78,21 @@ return {
 			on_attach = on_attach,
 			handlers = handlers,
 		})
-		lspconfig["sourcekit"].setup({
-			filetypes = { "swift" },
+		lspconfig["angularls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			handlers = handlers,
 		})
+		-- lspconfig["basedpyright"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	handlers = handlers,
+		-- 	settings = {
+		-- 		basedpyright = {
+		-- 			reportAny = false,
+		-- 		},
+		-- 	},
+		-- })
 
 		mason_lspconfig.setup_handlers({
 			function(server)
@@ -104,6 +113,18 @@ return {
 								callSnippet = "Replace",
 							},
 							workspace = { checkThirdParty = false },
+						},
+					},
+				})
+			end,
+			["basedpyright"] = function(server)
+				lspconfig[server].setup({
+					capabilities = capabilities,
+					on_attach = on_attach,
+					handlers = handlers,
+					settings = {
+						basedpyright = {
+							reportAny = false,
 						},
 					},
 				})
