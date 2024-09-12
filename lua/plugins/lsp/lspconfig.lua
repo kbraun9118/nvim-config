@@ -32,7 +32,7 @@ return {
 			setkey("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
 			setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart")
 			setkey("[d", vim.diagnostic.goto_prev, "Goto previous diagnostic")
-			setkey("]d", vim.diagnostic.goto_prev, "Goto next diagnostic")
+			setkey("]d", vim.diagnostic.goto_next, "Goto next diagnostic")
 			setkey("K", vim.lsp.buf.hover, "Show documentation")
 			setkey("<leader>ls", "<cmd>LspRestart<CR>", "Restart LSP")
 			setkey("<leader>lf", function()
