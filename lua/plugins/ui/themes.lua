@@ -1,15 +1,5 @@
 return {
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-	},
-	{
-		"rmehri01/onenord.nvim",
-		name = "onenord",
-		priority = 1000,
-	},
-	{
 		"navarasu/onedark.nvim",
 		name = "onedark",
 		priority = 1000,
@@ -20,10 +10,5 @@ return {
 			})
 			onedark.load()
 		end,
-	},
-	{
-		"tanvirtin/monokai.nvim",
-		name = "monokai",
-		priority = 1000,
 	},
 }
