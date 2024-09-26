@@ -22,6 +22,7 @@ return {
 			{ "<leader>l", desc = "LSP functions" },
 			{ "<leader>p", desc = "Packages" },
 			{ "<leader>s", desc = "Flash" },
+			{ "<leader>t", desc = "Trouble" },
 		})
 	end,
 }
