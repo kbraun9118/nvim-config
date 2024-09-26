@@ -60,6 +60,12 @@ return {
 			vim.keymap.set("n", "<leader>fq", telescope_builtin.quickfix, { desc = "Fuzzy find quickfix" })
 			vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Open undo tree" })
 			vim.keymap.set("n", "<leader>fk", telescope_builtin.keymaps, { desc = "Fuzzy find keymaps" })
+			vim.keymap.set(
+				"n",
+				"<leader>fl",
+				telescope_builtin.lsp_workspace_symbols,
+				{ desc = "Find workspace symbols" }
+			)
 		end,
 	},
 }
