@@ -33,7 +33,7 @@
     - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
     - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
     - [lualine](https://github.com/nvim-lualine/lualine.nvim)
-    - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+    - [oil](https://github.com/stevearc/oil.nvim)
 - [lazy](https://github.com/folke/lazy.nvim)
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [neodev](https://github.com/folke/neodev.nvim)
