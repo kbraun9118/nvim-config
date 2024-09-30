@@ -34,6 +34,8 @@
     - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
     - [lualine](https://github.com/nvim-lualine/lualine.nvim)
     - [oil](https://github.com/stevearc/oil.nvim)
+- Test
+    - [neotest](https://github.com/nvim-neotest/neotest)
 - [lazy](https://github.com/folke/lazy.nvim)
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [neodev](https://github.com/folke/neodev.nvim)

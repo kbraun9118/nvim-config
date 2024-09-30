@@ -23,6 +23,7 @@ return {
 			{ "<leader>p", desc = "Packages" },
 			{ "<leader>s", desc = "Flash" },
 			{ "<leader>t", desc = "Trouble" },
+			{ "<leader>y", desc = "Neotest" },
 		})
 	end,
 }
