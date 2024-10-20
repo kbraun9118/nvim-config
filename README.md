@@ -24,6 +24,7 @@
     - [treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - UI
     - [bufferline](https://github.com/akinsho/bufferline.nvim)
+    - [diffview](https://github.com/sindrets/diffview.nvim)
     - [dressing](https://github.com/stevearc/dressing.nvim)
     - [onedark](https://github.com/navarasu/onedark.nvim)
     - [lazygit](https://github.com/jesseduffield/lazygit)
