@@ -26,7 +26,6 @@ return {
 					},
 				},
 				extensions = {
-					-- fzf {},
 					undo = {
 						side_by_side = true,
 						layout_strategy = "vertical",
