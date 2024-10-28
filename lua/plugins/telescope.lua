@@ -48,7 +48,14 @@ return {
 
 			vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { desc = "Fuzzy find files in cwd" })
 			vim.keymap.set("n", "<leader>fr", telescope_builtin.oldfiles, { desc = "Fuzzy find recent files" })
-			vim.keymap.set("n", "<leader>fs", telescope_builtin.live_grep, { desc = "Fuzzy find string in cwd" })
+			vim.keymap.set("n", "<leader>fs", function()
+				telescope_builtin.grep_string({
+					shorten_path = true,
+					word_match = "-w",
+					only_sort_text = true,
+					search = "",
+				})
+			end, { desc = "Fuzzy find string in cwd" })
 			vim.keymap.set(
 				"n",
 				"<leader>fc",
