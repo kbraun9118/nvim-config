@@ -34,7 +34,7 @@
     - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
     - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
     - [lualine](https://github.com/nvim-lualine/lualine.nvim)
-    - [oil](https://github.com/stevearc/oil.nvim)
+    - [mini-files](https://github.com/echasnovski/mini.files)
 - Test
     - [neotest](https://github.com/nvim-neotest/neotest)
 - [lazy](https://github.com/folke/lazy.nvim)
