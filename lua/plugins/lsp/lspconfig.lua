@@ -11,6 +11,13 @@ return {
 		require("neodev").setup({})
 		local lspconfig = require("lspconfig")
 
+		vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+			pattern = "*.gitlab-ci*.{yml,yaml}",
+			callback = function()
+				vim.bo.filetype = "yaml.gitlab"
+			end,
+		})
+
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local mason_lspconfig = require("mason-lspconfig")
 
@@ -117,14 +124,18 @@ return {
 					},
 				})
 			end,
-			["basedpyright"] = function(server)
+			["pylsp"] = function(server)
 				lspconfig[server].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
 					handlers = handlers,
 					settings = {
-						basedpyright = {
-							reportAny = false,
+						pylsp = {
+							plugins = {
+								pycodestyle = {
+									ignore = { "E501" },
+								},
+							},
 						},
 					},
 				})
