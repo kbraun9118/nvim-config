@@ -44,6 +44,8 @@ opt.showmode = false
 -- always show 8 lines above or below
 opt.scrolloff = 8
 
--- Add column at 120 characrs
-opt.colorcolumn = '120'
+-- add column at 120 characrs
+opt.colorcolumn = "120"
 
+-- default to linux file format
+opt.fileformat = "unix"
