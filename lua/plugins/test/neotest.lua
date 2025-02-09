@@ -7,6 +7,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-neotest/neotest-python",
 		"nvim-neotest/neotest-go",
+		"nvim-neotest/neotest-jest",
 		"rouge8/neotest-rust",
 	},
 	config = function()
@@ -28,10 +29,14 @@ return {
 					recursive_run = true,
 				}),
 				require("neotest-rust")({}),
+				require("neotest-jest")({}),
 			},
 		})
 
 		vim.keymap.set("n", "<leader>yy", neotest.run.run, { desc = "Run nearest" })
+		vim.keymap.set("n", "<leader>yp", function()
+			neotest.run.run(vim.uv.cwd())
+		end, { desc = "Run nearest" })
 		vim.keymap.set("n", "<leader>yf", function()
 			neotest.run.run(vim.fn.expand("%"))
 		end, { desc = "Run file" })

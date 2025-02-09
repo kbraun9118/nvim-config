@@ -80,6 +80,11 @@ return {
 			on_attach = on_attach,
 			handlers = handlers,
 		})
+		lspconfig["hls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			handlers = handlers,
+		})
 		lspconfig["gleam"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
