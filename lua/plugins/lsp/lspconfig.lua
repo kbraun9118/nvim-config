@@ -105,6 +105,10 @@ return {
 		-- 		},
 		-- 	},
 		-- })
+		--
+		local mason_registry = require("mason-registry")
+		local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+			.. "/node_modules/@vue/language-server"
 
 		mason_lspconfig.setup_handlers({
 			function(server)
@@ -142,6 +146,32 @@ return {
 								},
 							},
 						},
+					},
+				})
+			end,
+			["ts_ls"] = function(server)
+				lspconfig[server].setup({
+					capabilities = capabilities,
+					on_attach = on_attach,
+					handlers = handlers,
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = vue_language_server_path,
+								languages = { "vue" },
+							},
+						},
+					},
+				})
+			end,
+			["volar"] = function(server)
+				lspconfig[server].setup({
+					capabilities = capabilities,
+					on_attach = on_attach,
+					handlers = handlers,
+					init_options = {
+						vue = { hybridMode = false },
 					},
 				})
 			end,
