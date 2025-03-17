@@ -1,4 +1,4 @@
 return {
 	"christoomey/vim-tmux-navigator",
-	config = function() end,
+	opts = true,
 }

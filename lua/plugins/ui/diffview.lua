@@ -7,7 +7,5 @@ return {
 			desc = "Open diffview",
 		},
 	},
-	config = function()
-		require("diffview").setup({})
-	end,
+	opts = true,
 }
