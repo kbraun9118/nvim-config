@@ -17,6 +17,11 @@ return {
 			local actions = require("telescope.actions")
 
 			telescope.setup({
+				pickers = {
+					find_files = {
+						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+					},
+				},
 				defaults = {
 					mappings = {
 						i = {
