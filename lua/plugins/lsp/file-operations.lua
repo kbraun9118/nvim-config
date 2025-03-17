@@ -4,5 +4,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-neo-tree/neo-tree.nvim",
 	},
-	opts = true,
+	config = function()
+		require("lsp-file-operations").setup({})
+	end,
 }
