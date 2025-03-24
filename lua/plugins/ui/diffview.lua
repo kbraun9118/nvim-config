@@ -1,11 +1,9 @@
 return {
 	"sindrets/diffview.nvim",
-	keys = {
-		{
-			"<leader>gd",
-			"<cmd>DiffviewOpen<cr>",
-			desc = "Open diffview",
-		},
-	},
-	opts = true,
+	opts = {},
+	config = function(opts)
+		require("diffview").setup(opts)
+
+		vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
+	end,
 }
