@@ -175,6 +175,18 @@ return {
 					},
 				})
 			end,
+			["tailwindcss"] = function(server)
+				lspconfig[server].setup({
+					capabilities = capabilities,
+					on_attach = on_attach,
+					handlers = handlers,
+					settings = {
+						tailwindCSS = {
+							classFunctions = { "tw", "twMerge" },
+						},
+					},
+				})
+			end,
 		})
 	end,
 }
