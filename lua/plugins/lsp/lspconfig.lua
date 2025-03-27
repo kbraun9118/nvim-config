@@ -38,9 +38,15 @@ return {
 			setkey("<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show buffer diagnostics")
 			setkey("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
 			setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart")
-			setkey("[d", vim.diagnostic.goto_prev, "Goto previous diagnostic")
-			setkey("]d", vim.diagnostic.goto_next, "Goto next diagnostic")
-			setkey("K", vim.lsp.buf.hover, "Show documentation")
+			setkey("[d", function()
+				vim.diagnostic.jump({ count = 1, float = true })
+			end, "Goto previous diagnostic")
+			setkey("]d", function()
+				vim.diagnostic.jump({ count = -1, float = true })
+			end, "Goto next diagnostic")
+			setkey("K", function()
+				vim.lsp.buf.hover({ border = "rounded" })
+			end, "Show documentation")
 			setkey("<leader>ls", "<cmd>LspRestart<CR>", "Restart LSP")
 			setkey("<leader>lf", function()
 				vim.lsp.buf.format({ async = true })
@@ -63,42 +69,39 @@ return {
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
-		local handlers = {
-			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signatureHelp, { border = "rounded" }),
-		}
-
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = " ",
+					[vim.diagnostic.severity.WARN] = " ",
+					[vim.diagnostic.severity.HINT] = "󰠠 ",
+					[vim.diagnostic.severity.INFO] = " ",
+				},
+			},
+		})
+		-- end
 
 		-- let opam installed lsp take over
 		lspconfig["ocamllsp"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			handlers = handlers,
 		})
 		lspconfig["hls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			handlers = handlers,
 		})
 		lspconfig["gleam"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			handlers = handlers,
 		})
 		lspconfig["angularls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			handlers = handlers,
 		})
 		-- lspconfig["basedpyright"].setup({
 		-- 	capabilities = capabilities,
 		-- 	on_attach = on_attach,
-		-- 	handlers = handlers,
+		--
 		-- 	settings = {
 		-- 		basedpyright = {
 		-- 			reportAny = false,
@@ -115,14 +118,12 @@ return {
 				lspconfig[server].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
-					handlers = handlers,
 				})
 			end,
 			["lua_ls"] = function(server)
 				lspconfig[server].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
-					handlers = handlers,
 					settings = {
 						Lua = {
 							completion = {
@@ -137,7 +138,6 @@ return {
 				lspconfig[server].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
-					handlers = handlers,
 					settings = {
 						pylsp = {
 							plugins = {
@@ -153,7 +153,6 @@ return {
 				lspconfig[server].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
-					handlers = handlers,
 					init_options = {
 						plugins = {
 							{
@@ -169,7 +168,6 @@ return {
 				lspconfig[server].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
-					handlers = handlers,
 					init_options = {
 						vue = { hybridMode = false },
 					},
@@ -179,7 +177,6 @@ return {
 				lspconfig[server].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
-					handlers = handlers,
 					settings = {
 						tailwindCSS = {
 							classFunctions = { "tw", "twMerge" },
