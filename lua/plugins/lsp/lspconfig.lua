@@ -70,6 +70,8 @@ return {
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 		vim.diagnostic.config({
+			update_in_insert = true,
+			virtual_lines = true,
 			signs = {
 				text = {
 					[vim.diagnostic.severity.ERROR] = " ",
