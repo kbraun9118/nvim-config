@@ -4,6 +4,9 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
+-- enable mouse mode
+opt.mouse = 'a'
+
 -- ui niceness
 opt.signcolumn = "yes"
 opt.background = "dark"
@@ -27,7 +30,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard
+opt.clipboard = "unnamedplus" -- use system clipboard
 
 -- splitting
 opt.splitright = true
@@ -49,3 +52,6 @@ opt.colorcolumn = "120"
 
 -- default to linux file format
 opt.fileformat = "unix"
+
+-- confirm file saving
+opt.confirm = true

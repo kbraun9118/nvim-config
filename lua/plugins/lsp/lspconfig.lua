@@ -5,11 +5,13 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"nvim-lua/plenary.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"folke/neodev.nvim",
+		"folke/lazydev.nvim",
+		"antosha417/nvim-lsp-file-operations",
 	},
 	config = function()
-		require("neodev").setup({})
-		local lspconfig = require("lspconfig")
+		require("lazydev").setup({})
+		require("lspconfig")
+		local lspFileOperations = require("lsp-file-operations")
 
 		vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 			pattern = "*.gitlab-ci*.{yml,yaml}",
@@ -19,13 +21,12 @@ return {
 		})
 
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local mason_lspconfig = require("mason-lspconfig")
+		require("mason-lspconfig").setup()
 
 		local on_attach = function(client, bufnr)
 			local setkey = function(keys, cmd, desc)
 				vim.keymap.set("n", keys, cmd, { noremap = true, silent = true, desc = desc, buffer = bufnr })
 			end
-
 			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
 			setkey("gr", "<cmd>Telescope lsp_references<CR>", "Show LSP references")
@@ -37,17 +38,16 @@ return {
 			setkey("<leader>lr", vim.lsp.buf.rename, "Smart rename")
 			setkey("<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show buffer diagnostics")
 			setkey("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
-			setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart")
+			setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart LSP")
 			setkey("[d", function()
-				vim.diagnostic.jump({ count = 1, float = true })
+				vim.diagnostic.jump({ count = -1, float = true })
 			end, "Goto previous diagnostic")
 			setkey("]d", function()
-				vim.diagnostic.jump({ count = -1, float = true })
+				vim.diagnostic.jump({ count = 1, float = true })
 			end, "Goto next diagnostic")
 			setkey("K", function()
 				vim.lsp.buf.hover({ border = "rounded" })
 			end, "Show documentation")
-			setkey("<leader>ls", "<cmd>LspRestart<CR>", "Restart LSP")
 			setkey("<leader>lf", function()
 				vim.lsp.buf.format({ async = true })
 			end, "Format buffer")
@@ -68,10 +68,12 @@ return {
 			end
 		end
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities =
+			vim.tbl_extend("force", cmp_nvim_lsp.default_capabilities(), lspFileOperations.default_capabilities())
+
 		vim.diagnostic.config({
 			update_in_insert = true,
-			virtual_lines = true,
+			virtual_text = true,
 			signs = {
 				text = {
 					[vim.diagnostic.severity.ERROR] = " ",
@@ -81,111 +83,72 @@ return {
 				},
 			},
 		})
-		-- end
 
-		-- let opam installed lsp take over
-		lspconfig["ocamllsp"].setup({
+		vim.lsp.config("*", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
-		lspconfig["hls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
+
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
+					completion = {
+						callSnippet = "Replace",
+					},
+					workspace = { checkThirdParty = false },
+				},
+			},
 		})
-		lspconfig["gleam"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
+
+		vim.lsp.config("pylsp", {
+			settings = {
+				pylsp = {
+					plugins = {
+						pycodestyle = {
+							ignore = { "E501" },
+						},
+					},
+				},
+			},
 		})
-		lspconfig["angularls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
+
+		vim.lsp.config("tailwindcss", {
+			settings = {
+				tailwindCSS = {
+					classFunctions = { "tw", "twMerge" },
+				},
+			},
 		})
-		-- lspconfig["basedpyright"].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		--
-		-- 	settings = {
-		-- 		basedpyright = {
-		-- 			reportAny = false,
+
+		vim.lsp.config("basedpyright", {
+			settings = {
+				basedpyright = {
+					reportAny = false,
+				},
+			},
+		})
+
+		--TODO: fix this when using vue next
+		-- local mason_registry = require("mason-registry")
+		-- local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+		--     .. "/node_modules/@vue/language-server"
+		-- vim.lsp.config("ts_ls", {
+		-- 	init_options = {
+		-- 		plugins = {
+		-- 			{
+		-- 				name = "@vue/typescript-plugin",
+		-- 				-- location = vue_language_server_path,
+		-- 				languages = { "vue" },
+		-- 			},
 		-- 		},
 		-- 	},
 		-- })
-		--
-		local mason_registry = require("mason-registry")
-		local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-			.. "/node_modules/@vue/language-server"
-
-		mason_lspconfig.setup_handlers({
-			function(server)
-				lspconfig[server].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-				})
-			end,
-			["lua_ls"] = function(server)
-				lspconfig[server].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-					settings = {
-						Lua = {
-							completion = {
-								callSnippet = "Replace",
-							},
-							workspace = { checkThirdParty = false },
-						},
-					},
-				})
-			end,
-			["pylsp"] = function(server)
-				lspconfig[server].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-					settings = {
-						pylsp = {
-							plugins = {
-								pycodestyle = {
-									ignore = { "E501" },
-								},
-							},
-						},
-					},
-				})
-			end,
-			["ts_ls"] = function(server)
-				lspconfig[server].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-					init_options = {
-						plugins = {
-							{
-								name = "@vue/typescript-plugin",
-								location = vue_language_server_path,
-								languages = { "vue" },
-							},
-						},
-					},
-				})
-			end,
-			["volar"] = function(server)
-				lspconfig[server].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-					init_options = {
-						vue = { hybridMode = false },
-					},
-				})
-			end,
-			["tailwindcss"] = function(server)
-				lspconfig[server].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-					settings = {
-						tailwindCSS = {
-							classFunctions = { "tw", "twMerge" },
-						},
-					},
-				})
-			end,
-		})
+		-- vim.lsp.config("volar", {
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	init_options = {
+		-- 		vue = { hybridMode = false },
+		-- 	},
+		-- })
 	end,
 }
