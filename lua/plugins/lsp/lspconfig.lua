@@ -89,6 +89,11 @@ return {
 			on_attach = on_attach,
 		})
 
+		vim.lsp.config("rust_analyzer", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
@@ -128,27 +133,24 @@ return {
 			},
 		})
 
-		--TODO: fix this when using vue next
-		-- local mason_registry = require("mason-registry")
-		-- local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-		--     .. "/node_modules/@vue/language-server"
-		-- vim.lsp.config("ts_ls", {
-		-- 	init_options = {
-		-- 		plugins = {
-		-- 			{
-		-- 				name = "@vue/typescript-plugin",
-		-- 				-- location = vue_language_server_path,
-		-- 				languages = { "vue" },
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
-		-- vim.lsp.config("volar", {
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	init_options = {
-		-- 		vue = { hybridMode = false },
-		-- 	},
-		-- })
+		vim.lsp.config("ts_ls", {
+			init_options = {
+				plugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = vim.fn.stdpath("data")
+							.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+						languages = { "vue" },
+					},
+				},
+			},
+		})
+		vim.lsp.config("volar", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			init_options = {
+				vue = { hybridMode = false },
+			},
+		})
 	end,
 }
