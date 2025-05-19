@@ -5,7 +5,6 @@ local keymap = vim.keymap
 
 -- Escaping
 keymap.set({ "i", "v" }, "<C-j>", "<Esc>", { desc = "Exit insert mode" })
-keymap.set({ "i", "v" }, "<C-c>", "<Esc>", { desc = "Exit insert mode" })
 
 -- Convenient moving
 keymap.set({ "n", "v" }, "L", "$")

@@ -12,7 +12,9 @@
     - [fidget](https://github.com/j-hui/fidget.nvim)
     - [file-operations](https://github.com/antosha417/nvim-lsp-file-operations)
     - [lsp_signature](https://github.com/ray-x/lsp_signature.nvim)
-    - [none-ls](https://github.com/nvimtools/none-ls.nvim)
+    - [conform](https://github.com/stevearc/conform.nvim)
+    - [nvim-lint](https://github.com/mfussenegger/nvim-lint)
+    - [lazydev](https://github.com/folke/lazydev.nvim)
 - DAP
     - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
     - [mason-nvim-dap](https://github.com/jay-babu/mason-nvim-dap.nvim)
@@ -39,7 +41,6 @@
     - [neotest](https://github.com/nvim-neotest/neotest)
 - [lazy](https://github.com/folke/lazy.nvim)
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-- [neodev](https://github.com/folke/neodev.nvim)
 - [nvim-surround](https://github.com/kylechui/nvim-surround)
 - [comment](https://github.com/numToStr/Comment.nvim)
 - [which-key](https://github.com/folke/which-key.nvim)
