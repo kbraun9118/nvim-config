@@ -1,5 +1,5 @@
 return {
 	"dmmulroy/ts-error-translator.nvim",
-	ft = "ts",
+	ft = { "typescript", "typescriptreact", "vue", "svelte" },
 	opts = {},
 }

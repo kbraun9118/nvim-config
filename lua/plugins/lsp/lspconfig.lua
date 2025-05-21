@@ -1,6 +1,5 @@
 return {
 	{
-
 		"folke/lazydev.nvim",
 		dependencies = { "justinsgithub/wezterm-types" },
 		ft = "lua",
@@ -19,9 +18,11 @@ return {
 			"nvim-lua/plenary.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"antosha417/nvim-lsp-file-operations",
+			"nvim-telescope/telescope.nvim",
 		},
 		config = function()
 			require("lspconfig")
+			local telescope = require("telescope.builtin")
 
 			vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 				pattern = "*.gitlab-ci*.{yml,yaml}",
@@ -38,14 +39,16 @@ return {
 				end
 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
-				setkey("gr", "<cmd>Telescope lsp_references<CR>", "Show LSP references")
+				setkey("gr", telescope.lsp_references, "Show LSP references")
 				setkey("gD", vim.lsp.buf.declaration, "Goto Declaration")
-				setkey("gd", "<cmd>Telescope lsp_definitions<CR>", "Show LSP definitions")
-				setkey("gi", "<cmd>Telescope lsp_implementations<CR>", "Show LSP implementations")
-				setkey("gt", "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions")
+				setkey("gd", telescope.lsp_definitions, "Show LSP definitions")
+				setkey("gi", telescope.lsp_implementations, "Show LSP implementations")
+				setkey("gt", telescope.lsp_type_definitions, "Show LSP type definitions")
 				setkey("<leader>la", vim.lsp.buf.code_action, "See available code actions")
 				setkey("<leader>lr", vim.lsp.buf.rename, "Smart rename")
-				setkey("<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show buffer diagnostics")
+				setkey("<leader>lD", function()
+					telescope.diagnostics({ bufnr = 0 })
+				end, "Show buffer diagnostics")
 				setkey("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
 				setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart LSP")
 				setkey("[d", function()

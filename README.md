@@ -27,16 +27,14 @@
 - UI
     - [bufferline](https://github.com/akinsho/bufferline.nvim)
     - [diffview](https://github.com/sindrets/diffview.nvim)
-    - [dressing](https://github.com/stevearc/dressing.nvim)
     - [onedark](https://github.com/navarasu/onedark.nvim)
     - [lazygit](https://github.com/jesseduffield/lazygit)
     - [nvim-notify](https://github.com/rcarriga/nvim-notify)
     - [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
     - [barbecue](https://github.com/utilyre/barbecue.nvim)
-    - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
     - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
     - [lualine](https://github.com/nvim-lualine/lualine.nvim)
-    - [mini-files](https://github.com/echasnovski/mini.files)
+    - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - Test
     - [neotest](https://github.com/nvim-neotest/neotest)
 - [lazy](https://github.com/folke/lazy.nvim)

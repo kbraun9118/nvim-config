@@ -6,22 +6,28 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
-	config = function()
-		require("neo-tree").setup({
-			filesystem = {
-				follow_current_file = {
-					enabled = true,
-				},
+	---@module "neo-tree"
+	---@type neotree.Config?
+	opts = {
+		filesystem = {
+			follow_current_file = {
+				enabled = true,
 			},
-			event_handlers = {
-				{
-					event = "file_open_requested",
-					handler = function()
-						require("neo-tree.command").execute({ action = "close" })
-					end,
-				},
-			},
+		},
+	},
+	config = function(_, opts)
+		require("neo-tree").setup(opts)
+
+		local function on_move(data)
+			Snacks.rename.on_rename_file(data.source, data.destination)
+		end
+		local events = require("neo-tree.events")
+		opts.event_handlers = opts.event_handlers or {}
+		vim.list_extend(opts.event_handlers, {
+			{ event = events.FILE_MOVED, handler = on_move },
+			{ event = events.FILE_RENAMED, handler = on_move },
 		})
+
 		vim.keymap.set("n", "<leader>e", "<cmd>Neotree<cr>", { desc = "Open NeoTree" })
 	end,
 }
