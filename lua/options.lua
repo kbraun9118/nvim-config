@@ -5,7 +5,7 @@ opt.relativenumber = true
 opt.number = true
 
 -- enable mouse mode
-opt.mouse = 'a'
+opt.mouse = "a"
 
 -- ui niceness
 opt.signcolumn = "yes"
@@ -52,6 +52,7 @@ opt.colorcolumn = "120"
 
 -- default to linux file format
 opt.fileformat = "unix"
+opt.fileformats = "unix,dos"
 
 -- confirm file saving
 opt.confirm = true
