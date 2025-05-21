@@ -35,7 +35,6 @@ return {
 					end,
 					"fallback",
 				},
-
 				["<S-Tab>"] = {
 					function(cmp)
 						if cmp.is_menu_visible() then
