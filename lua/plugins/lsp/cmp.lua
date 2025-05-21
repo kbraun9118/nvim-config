@@ -1,74 +1,72 @@
 return {
-	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
-	dependencies = {
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"L3MON4D3/LuaSnip",
-		"saadparwaiz1/cmp_luasnip",
-		"rafamadriz/friendly-snippets",
-		"onsails/lspkind.nvim",
-	},
-	config = function()
-		local lspkind = require("lspkind")
+	{
+		"saghen/blink.cmp",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+		},
+		version = "1.*",
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			keymap = {
+				preset = "enter",
+				["<C-e>"] = {},
+				["<C-c>"] = { "hide" },
+				["<C-n>"] = {
+					function(cmp)
+						if cmp.is_menu_visible() then
+							print("nexting")
+							return cmp.select_next()
+						else
+							print("showing")
+							return cmp.show()
+						end
+					end,
+					"fallback_to_mappings",
+				},
+				["<Tab>"] = {
+					function(cmp)
+						if cmp.is_menu_visible() then
+							return cmp.select_next()
+						end
+						if cmp.snippet_active() then
+							return cmp.snippet_forward()
+						end
+					end,
+					"fallback",
+				},
 
-		local cmp = require("cmp")
-
-		local luasnip = require("luasnip")
-
-		require("luasnip.loaders.from_vscode").lazy_load()
-
-		cmp.setup({
+				["<S-Tab>"] = {
+					function(cmp)
+						if cmp.is_menu_visible() then
+							return cmp.select_prev()
+						end
+						if cmp.snippet_active() then
+							return cmp.snippet_backward()
+						end
+					end,
+					"fallback",
+				},
+			},
 			completion = {
-				completeopt = "menu,menuone,preview,noselect",
+				menu = {
+					border = "rounded",
+				},
+				documentation = {
+					auto_show = true,
+					window = {
+						border = "rounded",
+					},
+				},
 			},
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
+			appearance = {
+				nerd_font_variant = "mono",
 			},
-			window = {
-				completion = cmp.config.window.bordered({ border = "rounded" }),
-				documentation = cmp.config.window.bordered({ border = "rounded" }),
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer" },
 			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-b>"] = cmp.mapping.scroll_docs(-4),
-				["<C-f>"] = cmp.mapping.scroll_docs(4),
-				["<C-Space>"] = cmp.mapping.complete(),
-				["<C-c>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
-				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_next_item()
-					elseif luasnip.expand_or_jumpable() then
-						luasnip.expand_or_jump()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
-				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					elseif luasnip.jumpable(-1) then
-						luasnip.jump(-1)
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
-			}),
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "buffer" },
-				{ name = "path" },
-			}),
-			formatting = {
-				format = lspkind.cmp_format({
-					mode = "symbol_text",
-					maxwidth = 50,
-					ellipsis_char = "...",
-				}),
-			},
-		})
-	end,
+			fuzzy = { implementation = "prefer_rust_with_warning" },
+		},
+		opts_extend = { "sources.default" },
+	},
 }

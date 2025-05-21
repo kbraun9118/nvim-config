@@ -7,7 +7,7 @@
     - [telescope](https://github.com/nvim-telescope/telescope.nvim)
 - LSP
     - [mason](https://github.com/williamboman/mason.nvim)
-    - [cmp](https://github.com/hrsh7th/nvim-cmp)
+    - [blink.cmp](https://github.com/saghen/blink.cmp)
     - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
     - [fidget](https://github.com/j-hui/fidget.nvim)
     - [file-operations](https://github.com/antosha417/nvim-lsp-file-operations)

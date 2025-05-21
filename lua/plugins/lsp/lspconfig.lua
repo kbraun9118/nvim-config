@@ -2,7 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
 		"nvim-lua/plenary.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"folke/lazydev.nvim",
@@ -11,7 +10,6 @@ return {
 	config = function()
 		require("lazydev").setup({})
 		require("lspconfig")
-		local lspFileOperations = require("lsp-file-operations")
 
 		vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 			pattern = "*.gitlab-ci*.{yml,yaml}",
@@ -20,7 +18,7 @@ return {
 			end,
 		})
 
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		require("mason-lspconfig").setup()
 
 		local on_attach = function(_, bufnr)
@@ -48,15 +46,9 @@ return {
 			setkey("K", function()
 				vim.lsp.buf.hover({ border = "rounded" })
 			end, "Show documentation")
-			-- setkey("<leader>lf", function()
-			-- 	vim.lsp.buf.format({ async = true })
-			-- end, "Format buffer")
 
 			vim.diagnostic.config({ update_in_insert = true })
 		end
-
-		local capabilities =
-			vim.tbl_extend("force", cmp_nvim_lsp.default_capabilities(), lspFileOperations.default_capabilities())
 
 		vim.diagnostic.config({
 			update_in_insert = true,
@@ -72,12 +64,6 @@ return {
 		})
 
 		vim.lsp.config("*", {
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		vim.lsp.config("rust_analyzer", {
-			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
@@ -133,7 +119,6 @@ return {
 			},
 		})
 		vim.lsp.config("volar", {
-			capabilities = capabilities,
 			on_attach = on_attach,
 			init_options = {
 				vue = { hybridMode = false },

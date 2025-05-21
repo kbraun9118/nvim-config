@@ -11,10 +11,10 @@ return {
 			typescriptreact = { "eslint" },
 			svelte = { "eslint" },
 			vue = { "eslint" },
-			css = { "eslint" },
-			html = { "eslint" },
-			yaml = { "eslint" },
-			json = { "eslint" },
+			-- css = { "eslint" },
+			-- html = { "eslint" },
+			-- yaml = { "eslint" },
+			-- json = { "eslint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
