@@ -1,16 +1,11 @@
 # NVIM config using Lazy
 
 ## Plugins I currently use
-
-- Telescope
-    - [telescope-undo](https://github.com/debugloop/telescope-undo.nvim)
-    - [telescope](https://github.com/nvim-telescope/telescope.nvim)
 - LSP
     - [mason](https://github.com/williamboman/mason.nvim)
     - [blink.cmp](https://github.com/saghen/blink.cmp)
     - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
     - [fidget](https://github.com/j-hui/fidget.nvim)
-    - [file-operations](https://github.com/antosha417/nvim-lsp-file-operations)
     - [lsp_signature](https://github.com/ray-x/lsp_signature.nvim)
     - [conform](https://github.com/stevearc/conform.nvim)
     - [nvim-lint](https://github.com/mfussenegger/nvim-lint)
@@ -34,7 +29,7 @@
     - [barbecue](https://github.com/utilyre/barbecue.nvim)
     - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
     - [lualine](https://github.com/nvim-lualine/lualine.nvim)
-    - [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
+    - [snacks](https://github.com/folke/snacks.nvim)
 - Test
     - [neotest](https://github.com/nvim-neotest/neotest)
 - [lazy](https://github.com/folke/lazy.nvim)

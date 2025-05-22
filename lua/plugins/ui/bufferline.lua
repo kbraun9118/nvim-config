@@ -14,7 +14,7 @@ return {
 				end,
 				offsets = {
 					{
-						filetype = "neo-tree",
+						filetype = "snacks_picker_list",
 						text = "File Explorer",
 						text_align = "left",
 						separator = true,

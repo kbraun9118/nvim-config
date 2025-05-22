@@ -7,7 +7,9 @@ return {
 		---@type lazydev.Config
 		opts = {
 			library = {
+				{ "lazy.nvim" },
 				{ path = "wezterm-types", mods = { "wezterm" } },
+				{ path = "snacks.nvim", words = { "Snacks" } },
 			},
 		},
 	},
@@ -18,11 +20,10 @@ return {
 			"nvim-lua/plenary.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"antosha417/nvim-lsp-file-operations",
-			"nvim-telescope/telescope.nvim",
+			"folke/snacks.nvim",
 		},
 		config = function()
 			require("lspconfig")
-			local telescope = require("telescope.builtin")
 
 			vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 				pattern = "*.gitlab-ci*.{yml,yaml}",
@@ -39,16 +40,14 @@ return {
 				end
 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
-				setkey("gr", telescope.lsp_references, "Show LSP references")
-				setkey("gD", vim.lsp.buf.declaration, "Goto Declaration")
-				setkey("gd", telescope.lsp_definitions, "Show LSP definitions")
-				setkey("gi", telescope.lsp_implementations, "Show LSP implementations")
-				setkey("gt", telescope.lsp_type_definitions, "Show LSP type definitions")
+				setkey("gr", Snacks.picker.lsp_references, "Show LSP references")
+				setkey("gD", Snacks.picker.lsp_declarations, "Goto Declaration")
+				setkey("gd", Snacks.picker.lsp_definitions, "Show LSP definitions")
+				setkey("gi", Snacks.picker.lsp_implementations, "Show LSP implementations")
+				setkey("gt", Snacks.picker.lsp_type_definitions, "Show LSP type definitions")
 				setkey("<leader>la", vim.lsp.buf.code_action, "See available code actions")
 				setkey("<leader>lr", vim.lsp.buf.rename, "Smart rename")
-				setkey("<leader>lD", function()
-					telescope.diagnostics({ bufnr = 0 })
-				end, "Show buffer diagnostics")
+				setkey("<leader>lD", Snacks.picker.diagnostics_buffer, "Show buffer diagnostics")
 				setkey("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
 				setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart LSP")
 				setkey("[d", function()
