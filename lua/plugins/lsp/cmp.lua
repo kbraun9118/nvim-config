@@ -15,10 +15,8 @@ return {
 				["<C-n>"] = {
 					function(cmp)
 						if cmp.is_menu_visible() then
-							print("nexting")
 							return cmp.select_next()
 						else
-							print("showing")
 							return cmp.show()
 						end
 					end,

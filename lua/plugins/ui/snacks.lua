@@ -27,9 +27,7 @@ return {
 			},
 		},
 		indent = {
-			indent = {
-				-- only_scope = true,
-			},
+			indent = {},
 			scope = {
 				hl = "SnacksIndent1",
 			},
