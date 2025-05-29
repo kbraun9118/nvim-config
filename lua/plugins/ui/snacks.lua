@@ -98,6 +98,13 @@ return {
 			desc = "LSP symbols",
 		},
 		{
+			"<leader>fM",
+			function()
+				Snacks.picker.lsp_workspace_symbols()
+			end,
+			desc = "LSP symbols",
+		},
+		{
 			"<leader>fq",
 			function()
 				Snacks.picker.qflist()
