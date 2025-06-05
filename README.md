@@ -41,6 +41,6 @@
 - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - [flash](https://github.com/folke/flash.nvim)
 - [ts-error-translate](https://github.com/dmmulroy/ts-error-translator.nvim)
-- [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
+- [render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 - [tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [trouble](https://github.com/folke/trouble.nvim)
