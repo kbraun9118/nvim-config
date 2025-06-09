@@ -34,34 +34,32 @@ return {
 
 			require("mason-lspconfig").setup()
 
-			local on_attach = function(_, bufnr)
-				local setkey = function(keys, cmd, desc)
-					vim.keymap.set("n", keys, cmd, { noremap = true, silent = true, desc = desc, buffer = bufnr })
-				end
-				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-
-				setkey("gr", Snacks.picker.lsp_references, "Show LSP references")
-				setkey("gD", Snacks.picker.lsp_declarations, "Goto Declaration")
-				setkey("gd", Snacks.picker.lsp_definitions, "Show LSP definitions")
-				setkey("gi", Snacks.picker.lsp_implementations, "Show LSP implementations")
-				setkey("gt", Snacks.picker.lsp_type_definitions, "Show LSP type definitions")
-				setkey("<leader>la", vim.lsp.buf.code_action, "See available code actions")
-				setkey("<leader>lr", vim.lsp.buf.rename, "Smart rename")
-				setkey("<leader>lD", Snacks.picker.diagnostics_buffer, "Show buffer diagnostics")
-				setkey("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
-				setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart LSP")
-				setkey("[d", function()
-					vim.diagnostic.jump({ count = -1, float = true })
-				end, "Goto previous diagnostic")
-				setkey("]d", function()
-					vim.diagnostic.jump({ count = 1, float = true })
-				end, "Goto next diagnostic")
-				setkey("K", function()
-					vim.lsp.buf.hover({ border = "rounded" })
-				end, "Show documentation")
-
-				vim.diagnostic.config({ update_in_insert = true })
+			local setkey = function(keys, cmd, desc)
+				vim.keymap.set("n", keys, cmd, { noremap = true, silent = true, desc = desc })
 			end
+			vim.lsp.inlay_hint.enable(true)
+
+			setkey("gr", Snacks.picker.lsp_references, "Show LSP references")
+			setkey("gD", Snacks.picker.lsp_declarations, "Goto Declaration")
+			setkey("gd", Snacks.picker.lsp_definitions, "Show LSP definitions")
+			setkey("gi", Snacks.picker.lsp_implementations, "Show LSP implementations")
+			setkey("gt", Snacks.picker.lsp_type_definitions, "Show LSP type definitions")
+			setkey("<leader>la", vim.lsp.buf.code_action, "See available code actions")
+			setkey("<leader>lr", vim.lsp.buf.rename, "Smart rename")
+			setkey("<leader>lD", Snacks.picker.diagnostics_buffer, "Show buffer diagnostics")
+			setkey("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
+			setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart LSP")
+			setkey("[d", function()
+				vim.diagnostic.jump({ count = -1, float = true })
+			end, "Goto previous diagnostic")
+			setkey("]d", function()
+				vim.diagnostic.jump({ count = 1, float = true })
+			end, "Goto next diagnostic")
+			setkey("K", function()
+				vim.lsp.buf.hover({ border = "rounded" })
+			end, "Show documentation")
+
+			vim.diagnostic.config({ update_in_insert = true })
 
 			vim.diagnostic.config({
 				update_in_insert = true,
@@ -74,10 +72,6 @@ return {
 						[vim.diagnostic.severity.INFO] = " ",
 					},
 				},
-			})
-
-			vim.lsp.config("*", {
-				on_attach = on_attach,
 			})
 
 			vim.lsp.config("lua_ls", {
@@ -132,7 +126,6 @@ return {
 				},
 			})
 			vim.lsp.config("vue_ls", {
-				on_attach = on_attach,
 				init_options = {
 					vue = { hybridMode = false },
 				},
