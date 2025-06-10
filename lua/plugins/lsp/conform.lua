@@ -18,6 +18,7 @@ return {
 					json = { "prettierd" },
 					lua = { "stylua" },
 					python = { "ruff" },
+					ocaml = { "ocamlformat" },
 				},
 				default_format_opts = {
 					lsp_format = "fallback",

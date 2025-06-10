@@ -47,19 +47,19 @@ return {
 			setkey("<leader>la", vim.lsp.buf.code_action, "See available code actions")
 			setkey("<leader>lr", vim.lsp.buf.rename, "Smart rename")
 			setkey("<leader>lD", Snacks.picker.diagnostics_buffer, "Show buffer diagnostics")
-			setkey("<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
+			setkey("<leader>ld", function()
+				vim.diagnostic.open_float({ border = "rounded" })
+			end, "Show line diagnostics")
 			setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart LSP")
 			setkey("[d", function()
-				vim.diagnostic.jump({ count = -1, float = true })
+				vim.diagnostic.jump({ count = -1 })
 			end, "Goto previous diagnostic")
 			setkey("]d", function()
-				vim.diagnostic.jump({ count = 1, float = true })
+				vim.diagnostic.jump({ count = 1 })
 			end, "Goto next diagnostic")
 			setkey("K", function()
 				vim.lsp.buf.hover({ border = "rounded" })
 			end, "Show documentation")
-
-			vim.diagnostic.config({ update_in_insert = true })
 
 			vim.diagnostic.config({
 				update_in_insert = true,
@@ -125,11 +125,14 @@ return {
 					},
 				},
 			})
+
 			vim.lsp.config("vue_ls", {
 				init_options = {
 					vue = { hybridMode = false },
 				},
 			})
+
+			vim.lsp.enable("ocamllsp")
 		end,
 	},
 }
