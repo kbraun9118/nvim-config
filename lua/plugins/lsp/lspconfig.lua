@@ -1,3 +1,4 @@
+--- @type LazySpec
 return {
 	{
 		"folke/lazydev.nvim",
@@ -74,6 +75,9 @@ return {
 				},
 			})
 
+			vim.lsp.enable("ocamllsp")
+			vim.lsp.enable("hls")
+
 			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
@@ -131,8 +135,6 @@ return {
 					vue = { hybridMode = false },
 				},
 			})
-
-			vim.lsp.enable("ocamllsp")
 
 			vim.lsp.config("yamlls", {
 				settings = {

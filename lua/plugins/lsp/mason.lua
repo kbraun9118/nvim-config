@@ -30,7 +30,6 @@ return {
 				"svelte",
 				"rust_analyzer",
 				"lua_ls",
-				"sqlls",
 				"gopls",
 			},
 			automatic_installation = {
