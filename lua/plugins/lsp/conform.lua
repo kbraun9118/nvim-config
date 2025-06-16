@@ -19,6 +19,7 @@ return {
 					lua = { "stylua" },
 					python = { "ruff" },
 					ocaml = { "ocamlformat" },
+					cpp = { "clang-format" },
 				},
 				default_format_opts = {
 					lsp_format = "fallback",

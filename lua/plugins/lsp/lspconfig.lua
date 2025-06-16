@@ -133,6 +133,16 @@ return {
 			})
 
 			vim.lsp.enable("ocamllsp")
+
+			vim.lsp.config("yamlls", {
+				settings = {
+					yaml = {
+						customTags = {
+							"!reference sequence",
+						},
+					},
+				},
+			})
 		end,
 	},
 }
