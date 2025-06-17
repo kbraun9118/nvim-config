@@ -77,6 +77,7 @@ return {
 
 			vim.lsp.enable("ocamllsp")
 			vim.lsp.enable("hls")
+			vim.lsp.enable("gleam")
 
 			vim.lsp.config("lua_ls", {
 				settings = {
