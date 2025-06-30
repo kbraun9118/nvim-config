@@ -21,6 +21,7 @@ return {
 					python = { "ruff" },
 					ocaml = { "ocamlformat" },
 					cpp = { "clang-format" },
+					toml = { "toplo" },
 				},
 				default_format_opts = {
 					lsp_format = "fallback",

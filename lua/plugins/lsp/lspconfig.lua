@@ -22,6 +22,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"antosha417/nvim-lsp-file-operations",
 			"folke/snacks.nvim",
+			"b0o/schemastore.nvim",
 		},
 		config = function()
 			require("lspconfig")
@@ -146,6 +147,29 @@ return {
 					},
 				},
 			})
+
+			vim.lsp.config("svelte", {
+				on_attach = function(client)
+					vim.api.nvim_create_autocmd("BufWritePost", {
+						pattern = { "*.js", "*.ts" },
+						callback = function(ctx)
+							print("here")
+							vim.notify("Here")
+							client:notify("$/onDidChangeTsOrJsFile", {
+								uri = ctx.match,
+							})
+						end,
+					})
+				end,
+			} --[[@as vim.lsp.Config]])
+
+			vim.lsp.config("jsonls", {
+				settings = {
+					json = {
+						schemas = require("schemastore").json.schemas(),
+					},
+				},
+			}--[[@as vim.lsp.Config]])
 		end,
 	},
 }
