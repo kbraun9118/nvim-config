@@ -17,6 +17,7 @@ return {
 					html = { "prettierd" },
 					yaml = { "prettierd" },
 					json = { "prettierd" },
+					jsonc = { "prettierd" },
 					lua = { "stylua" },
 					python = { "ruff" },
 					ocaml = { "ocamlformat" },
