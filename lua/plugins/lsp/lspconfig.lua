@@ -80,6 +80,21 @@ return {
 			vim.lsp.enable("hls")
 			vim.lsp.enable("gleam")
 
+			vim.lsp.config("gopls", {
+				settings = {
+					gopls = {
+						hints = {
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							ignoredError = true,
+							rangeVariableTypes = true,
+						},
+					},
+				},
+			})
+
 			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
@@ -128,6 +143,10 @@ return {
 								.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
 							languages = { "vue" },
 						},
+					},
+					preferences = {
+						includeInlayVariableTypeHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
 					},
 				},
 			})
