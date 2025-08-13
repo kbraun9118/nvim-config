@@ -7,7 +7,7 @@ opt.number = true
 -- enable mouse mode
 opt.mouse = "a"
 
--- ui niceness
+-- UI niceness
 opt.signcolumn = "yes"
 opt.background = "dark"
 opt.termguicolors = true
@@ -47,7 +47,7 @@ opt.showmode = false
 -- always show 8 lines above or below
 opt.scrolloff = 8
 
--- add column at 120 characrs
+-- add column at 120 characters
 opt.colorcolumn = "120"
 
 -- default to linux file format

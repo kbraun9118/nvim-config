@@ -126,10 +126,11 @@ return {
 			desc = "Keymaps",
 		},
 		{
-			"<leader>fl",
+			"<leader>fd",
 			function()
-				Snacks.picker.lsp_workspace_symbols()
+				Snacks.picker.diagnostics()
 			end,
+			desc = "Diagnostics",
 		},
 	},
 }

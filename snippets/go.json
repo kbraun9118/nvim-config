@@ -1,0 +1,19 @@
+{
+  "Err not nil": {
+    "prefix": ["errr"],
+    "body": [
+      "if err := ${1:functionCall}; err != nil {",
+      "\t${2:return err }",
+      "}"
+    ]
+  },
+  "Variable and err not nil": {
+    "prefix": ["errv"],
+    "body": [
+      "${2:var}, err := ${1:functionCall}",
+      "if err != nil {",
+      "\t${3:return err}",
+      "}"
+    ]
+  }
+}
