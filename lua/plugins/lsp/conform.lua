@@ -6,6 +6,7 @@ return {
 		config = function()
 			local conform = require("conform")
 			conform.setup({
+				log_level = vim.log.levels.DEBUG,
 				formatters_by_ft = {
 					javascript = { "prettierd" },
 					javascriptreact = { "prettierd" },
@@ -19,7 +20,7 @@ return {
 					json = { "prettierd" },
 					jsonc = { "prettierd" },
 					lua = { "stylua" },
-					python = { "ruff" },
+					python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 					ocaml = { "ocamlformat" },
 					cpp = { "clang-format" },
 					toml = { "toplo" },
