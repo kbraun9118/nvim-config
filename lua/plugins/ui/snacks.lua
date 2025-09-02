@@ -36,6 +36,7 @@ return {
 			},
 		},
 		explorer = {},
+		scratch = {},
 	},
 	keys = {
 		{
@@ -131,6 +132,43 @@ return {
 				Snacks.picker.diagnostics()
 			end,
 			desc = "Diagnostics",
+		},
+		{
+			"<leader>.",
+			function()
+				local filetypes = {
+					{ text = "sql" },
+					{ text = "xml" },
+					{ text = "json" },
+				}
+
+				Snacks.picker.pick({
+					source = "scratch",
+					items = filetypes,
+					format = "text",
+					actions = {
+						confirm = function(picker, item)
+							picker:close()
+							vim.schedule(function()
+								local items = picker:items()
+								if #items == 0 then
+									Snacks.scratch({ ft = picker:filter().pattern })
+								else
+									Snacks.scratch({ ft = item.text })
+								end
+							end)
+						end,
+					},
+				})
+			end,
+			desc = "Toggle scratch buffer",
+		},
+		{
+			"<leader>fS",
+			function()
+				Snacks.scratch.select()
+			end,
+			desc = "Scratch buffer",
 		},
 	},
 }

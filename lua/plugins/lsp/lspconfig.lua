@@ -79,6 +79,17 @@ return {
 			vim.lsp.enable("ocamllsp")
 			vim.lsp.enable("hls")
 			vim.lsp.enable("gleam")
+			vim.lsp.enable("sourcekit")
+
+			vim.lsp.config("sourcekit", {
+				capabilities = {
+					workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
+						},
+					},
+				},
+			})
 
 			vim.lsp.config("gopls", {
 				settings = {

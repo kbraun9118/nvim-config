@@ -56,6 +56,9 @@ return {
 						border = "rounded",
 					},
 				},
+				ghost_text = {
+					enabled = true,
+				},
 			},
 			appearance = {
 				nerd_font_variant = "mono",

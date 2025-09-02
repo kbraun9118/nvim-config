@@ -19,7 +19,7 @@ return {
 					json = { "prettierd" },
 					jsonc = { "prettierd" },
 					lua = { "stylua" },
-					python = { "ruff" },
+					python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 					ocaml = { "ocamlformat" },
 					cpp = { "clang-format" },
 					toml = { "toplo" },
