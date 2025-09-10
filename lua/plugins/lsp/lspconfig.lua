@@ -94,6 +94,7 @@ return {
 			vim.lsp.config("gopls", {
 				settings = {
 					gopls = {
+						staticcheck = true,
 						hints = {
 							assignVariableTypes = true,
 							compositeLiteralFields = true,
