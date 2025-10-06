@@ -94,6 +94,9 @@ return {
 			vim.lsp.config("gopls", {
 				settings = {
 					gopls = {
+						analyses = {
+							["ST1000"] = false,
+						},
 						staticcheck = true,
 						hints = {
 							assignVariableTypes = true,
