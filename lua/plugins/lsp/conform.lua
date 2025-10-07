@@ -19,6 +19,7 @@ return {
 					yaml = { "prettierd" },
 					json = { "prettierd" },
 					jsonc = { "prettierd" },
+					markdown = { "prettierd" },
 					lua = { "stylua" },
 					python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 					ocaml = { "ocamlformat" },
