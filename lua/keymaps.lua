@@ -27,9 +27,7 @@ keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { desc = "Close buffer" })
 
 -- Indenting
 keymap.set("v", "<Tab>", ">", { desc = "Indent" })
-keymap.set("n", "<Tab>", ">>", { desc = "Indent" })
 keymap.set("v", "<S-Tab>", "<", { desc = "Unindent" })
-keymap.set("n", "<S-Tab>", "<<", { desc = "Unindent" })
 
 -- Clear search
 keymap.set("n", "<leader>z", "<cmd>noh<CR>", { desc = "Clear search" })
