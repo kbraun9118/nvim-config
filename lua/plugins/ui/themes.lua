@@ -2,14 +2,19 @@
 return {
 	{
 		"navarasu/onedark.nvim",
-		name = "onedark",
+		version = "v0.1.0",
 		priority = 1000,
-		opts = {
-			style = "warmer",
-		},
-		-- init = function()
-		-- 	require("onedark").load()
-		-- end,
+		-- opts = {
+		-- 	style = "warmer",
+		-- },
+		config = function()
+			local onedark = require("onedark")
+			onedark.setup({
+				style = "warmer",
+			})
+			onedark.load()
+			-- vim.cmd.colorscheme("onedark")
+		end,
 	},
 	{
 		"catppuccin/nvim",
@@ -17,10 +22,10 @@ return {
 		priority = 1000,
 		---@require("catppuccin")
 		---@type CatppuccinOptions
-		opts = {
-			flavour = "macchiato",
-			auto_integrations = true,
-		},
+		-- opts = {
+		-- 	flavour = "macchiato",
+		-- 	auto_integrations = true,
+		-- },
 		-- init = function()
 		-- 	vim.cmd.colorscheme("catppuccin")
 		-- end,
@@ -31,9 +36,9 @@ return {
 		priority = 1000,
 		---@require("tokyonight")
 		---@type tokyonight.Config
-		opts = {
-			style = "storm",
-		},
+		-- opts = {
+		-- 	style = "storm",
+		-- },
 		-- init = function()
 		-- 	vim.cmd.colorscheme("tokyonight")
 		-- end,
@@ -44,9 +49,9 @@ return {
 		priority = 1000,
 		---@require("tokyonight")
 		---@type tokyonight.Config
-		opts = {},
-		init = function()
-			vim.cmd.colorscheme("darkplus")
-		end,
+		-- opts = {},
+		-- init = function()
+		-- 	vim.cmd.colorscheme("darkplus")
+		-- end,
 	},
 }
