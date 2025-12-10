@@ -56,3 +56,6 @@ opt.fileformats = "unix,dos"
 
 -- confirm file saving
 opt.confirm = true
+
+-- disable folding
+opt.foldenable = false

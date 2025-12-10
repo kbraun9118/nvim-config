@@ -25,6 +25,7 @@ return {
 			{ "<leader>s", desc = "Flash" },
 			{ "<leader>t", desc = "Trouble" },
 			{ "<leader>y", desc = "Neotest" },
+			{ "<leader>R", desc = "Kulala Http" },
 		})
 	end,
 }
