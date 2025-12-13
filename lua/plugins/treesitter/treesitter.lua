@@ -30,7 +30,9 @@ return {
       "java",
       "tsx",
       "jsx",
+      "angular",
     })
+    vim.treesitter.language.register("angular", "html")
 
     vim.api.nvim_create_autocmd("FileType", {
       callback = function(args)
