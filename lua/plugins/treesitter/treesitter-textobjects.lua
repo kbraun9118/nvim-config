@@ -2,7 +2,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	branch = "main",
-	lazy = true,
 	after = "nvim-treesitter",
 	requires = "nvim-treesitter/nvim-treesitter",
 	config = function()
