@@ -150,6 +150,8 @@ return {
 			})
 
 			vim.lsp.config("ts_ls", {
+				root_markers = { "package.json" },
+				single_file_support = false,
 				init_options = {
 					plugins = {
 						{
@@ -164,7 +166,11 @@ return {
 						includeInlayFunctionLikeReturnTypeHints = true,
 					},
 				},
-			})
+			} --[[@as vim.lsp.Config]])
+
+			vim.lsp.config("denols", {
+				root_markers = { "deno.json", "deno.jsonc" },
+			} --[[@as vim.lsp.Config]])
 
 			vim.lsp.config("vue_ls", {
 				init_options = {
