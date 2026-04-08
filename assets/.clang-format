@@ -1,0 +1,60 @@
+# =========================================
+# Java-safe clang-format (IntelliJ-friendly)
+# =========================================
+
+Language: Java
+BasedOnStyle: Google
+
+# ---- Indentation ----
+UseTab: Never
+IndentWidth: 4
+TabWidth: 4
+ContinuationIndentWidth: 8
+
+# ---- Line length ----
+ColumnLimit: 120
+
+# ---- Braces (K&R, Java-safe) ----
+BreakBeforeBraces: Attach
+
+# ---- One-liners ----
+AllowShortBlocksOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: None
+AllowShortLambdasOnASingleLine: None
+
+# ---- Alignment (diff-minimizing) ----
+AlignOperands: false
+AlignAfterOpenBracket: DontAlign
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+
+# ---- Operators / wrapping ----
+BreakBeforeBinaryOperators: None
+BreakBeforeTernaryOperators: true
+
+# ---- Spacing ----
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpaceAfterCStyleCast: true
+
+SpaceBeforeAssignmentOperators: true
+
+# ---- Switch / case ----
+IndentCaseLabels: true
+AllowShortCaseLabelsOnASingleLine: false
+
+# ---- Comments ----
+ReflowComments: false
+CommentPragmas: "^@formatter:(on|off)"
+
+# ---- Empty lines ----
+MaxEmptyLinesToKeep: 2
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+# --- Imports ---
+JavaImportGroups: [java]
+SortJavaStaticImport: After

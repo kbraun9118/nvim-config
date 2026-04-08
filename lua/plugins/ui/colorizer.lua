@@ -5,6 +5,17 @@ return {
 	---@module 'colorizer.config'
 	---@type colorizer.SetupOptions
 	opts = {
-		options = {},
+		options = {
+			parsers = {
+				rgb = { enable = true },
+				tailwind = {
+					enable = true,
+					update_names = true,
+					lsp = {
+						enable = true,
+					},
+				},
+			},
+		},
 	},
 }

@@ -81,138 +81,139 @@ return {
 			vim.lsp.enable("gleam")
 			vim.lsp.enable("sourcekit")
 
-			vim.lsp.config("sourcekit", {
-				capabilities = {
-					workspace = {
-						didChangeWatchedFiles = {
-							dynamicRegistration = true,
-						},
-					},
-				},
-			})
-
-			vim.lsp.config("gopls", {
-				settings = {
-					gopls = {
-						analyses = {
-							["ST1000"] = false,
-						},
-						staticcheck = true,
-						hints = {
-							assignVariableTypes = true,
-							compositeLiteralFields = true,
-							compositeLiteralTypes = true,
-							constantValues = true,
-							ignoredError = true,
-							rangeVariableTypes = true,
-						},
-					},
-				},
-			})
-
-			vim.lsp.config("lua_ls", {
-				settings = {
-					Lua = {
-						completion = {
-							callSnippet = "Replace",
-						},
-						workspace = { checkThirdParty = false },
-					},
-				},
-			})
-
-			vim.lsp.config("pylsp", {
-				settings = {
-					pylsp = {
-						plugins = {
-							pycodestyle = {
-								ignore = { "E501" },
+			---@type table<string, vim.lsp.Config>
+			local configs = {
+				sourcekit = {
+					capabilities = {
+						workspace = {
+							didChangeWatchedFiles = {
+								dynamicRegistration = true,
 							},
 						},
 					},
 				},
-			})
-
-			vim.lsp.config("tailwindcss", {
-				settings = {
-					tailwindCSS = {
-						classFunctions = { "tw", "twMerge" },
-					},
-				},
-			})
-
-			vim.lsp.config("basedpyright", {
-				settings = {
-					basedpyright = {
-						reportAny = false,
-					},
-				},
-			})
-
-			vim.lsp.config("ts_ls", {
-				root_markers = { "package.json" },
-				single_file_support = false,
-				init_options = {
-					plugins = {
-						{
-							name = "@vue/typescript-plugin",
-							location = vim.fn.stdpath("data")
-								.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-							languages = { "vue" },
-						},
-					},
-					preferences = {
-						includeInlayVariableTypeHints = true,
-						includeInlayFunctionLikeReturnTypeHints = true,
-					},
-				},
-			} --[[@as vim.lsp.Config]])
-
-			vim.lsp.config("denols", {
-				root_markers = { "deno.json", "deno.jsonc" },
-			} --[[@as vim.lsp.Config]])
-
-			vim.lsp.config("vue_ls", {
-				init_options = {
-					vue = { hybridMode = false },
-				},
-			})
-
-			vim.lsp.config("yamlls", {
-				settings = {
-					yaml = {
-						customTags = {
-							"!reference sequence",
+				gopls = {
+					settings = {
+						gopls = {
+							analyses = {
+								["ST1000"] = false,
+							},
+							staticcheck = true,
+							hints = {
+								assignVariableTypes = true,
+								compositeLiteralFields = true,
+								compositeLiteralTypes = true,
+								constantValues = true,
+								ignoredError = true,
+								rangeVariableTypes = true,
+							},
 						},
 					},
 				},
-			})
-
-			vim.lsp.config("svelte", {
-				on_attach = function(client)
-					vim.api.nvim_create_autocmd("BufWritePost", {
-						pattern = { "*.js", "*.ts" },
-						callback = function(ctx)
-							print("here")
-							vim.notify("Here")
-							client:notify("$/onDidChangeTsOrJsFile", {
-								uri = ctx.match,
-							})
-						end,
-					})
-				end,
-			} --[[@as vim.lsp.Config]])
-
-			vim.lsp.config("jsonls", {
-				settings = {
-					json = {
-						schemas = require("schemastore").json.schemas(),
-						validate = {
-							enable = true,
+				lua_ls = {
+					settings = {
+						Lua = {
+							completion = {
+								callSnippet = "Replace",
+							},
+							workspace = { checkThirdParty = false },
 						},
 					},
 				},
-			}--[[@as vim.lsp.Config]])
+
+				pylsp = {
+					settings = {
+						pylsp = {
+							plugins = {
+								pycodestyle = {
+									ignore = { "E501" },
+								},
+							},
+						},
+					},
+				},
+
+				tailwindcss = {
+					settings = {
+						tailwindCSS = {
+							classFunctions = { "tw", "twMerge" },
+						},
+					},
+				},
+
+				basedpyright = {
+					settings = {
+						basedpyright = {
+							reportAny = false,
+						},
+					},
+				},
+
+				ts_ls = {
+					root_markers = { "package.json" },
+					single_file_support = false,
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = vim.fn.stdpath("data")
+									.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+								languages = { "vue" },
+							},
+						},
+						preferences = {
+							includeInlayVariableTypeHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+						},
+					},
+				},
+				denols = {
+					root_markers = { "deno.json", "deno.jsonc" },
+				},
+				vue_ls = {
+					init_options = {
+						vue = { hybridMode = false },
+					},
+				},
+
+				yamlls = {
+					settings = {
+						yaml = {
+							customTags = {
+								"!reference sequence",
+							},
+						},
+					},
+				},
+				svelte = {
+					on_attach = function(client)
+						vim.api.nvim_create_autocmd("BufWritePost", {
+							pattern = { "*.js", "*.ts" },
+							callback = function(ctx)
+								print("here")
+								vim.notify("Here")
+								client:notify("$/onDidChangeTsOrJsFile", {
+									uri = ctx.match,
+								})
+							end,
+						})
+					end,
+				},
+				jsonls = {
+					settings = {
+						json = {
+							schemas = require("schemastore").json.schemas(),
+							validate = {
+								enable = true,
+							},
+						},
+					},
+				},
+			}
+
+			for lsp, config in pairs(configs) do
+				vim.lsp.config(lsp, config)
+			end
 		end,
 	},
 }
