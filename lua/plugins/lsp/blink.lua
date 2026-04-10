@@ -2,7 +2,7 @@
 return {
 	{
 		"saghen/blink.cmp",
-		dependencies = { "folke/lazydev.nvim", "rafamadriz/friendly-snippets" },
+		dependencies = { "folke/lazydev.nvim", "rafamadriz/friendly-snippets", "bydlw98/blink-cmp-env" },
 		version = "1.*",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
@@ -65,12 +65,16 @@ return {
 				nerd_font_variant = "mono",
 			},
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+				default = { "lazydev", "lsp", "path", "snippets", "buffer", "env" },
 				providers = {
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
 						score_offset = 100,
+					},
+					env = {
+						name = "Env",
+						module = "blink-cmp-env",
 					},
 				},
 			},

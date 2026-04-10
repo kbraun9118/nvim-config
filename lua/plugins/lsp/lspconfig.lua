@@ -52,7 +52,7 @@ return {
 			setkey("<leader>ld", function()
 				vim.diagnostic.open_float({ border = "rounded" })
 			end, "Show line diagnostics")
-			setkey("<leader>lR", "<cmd>LspRestart<cr>", "Restart LSP")
+			setkey("<leader>lR", "<cmd>lsp restart<cr>", "Restart LSP")
 			setkey("[d", function()
 				vim.diagnostic.jump({ count = -1 })
 			end, "Goto previous diagnostic")
