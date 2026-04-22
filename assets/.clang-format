@@ -1,7 +1,7 @@
 # =========================================
 # Java-safe clang-format (IntelliJ-friendly)
 # =========================================
-
+---
 Language: Java
 BasedOnStyle: Google
 
@@ -58,3 +58,5 @@ KeepEmptyLinesAtTheStartOfBlocks: false
 # --- Imports ---
 JavaImportGroups: [java]
 SortJavaStaticImport: After
+---
+Language: Cpp

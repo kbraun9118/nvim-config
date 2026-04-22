@@ -1,10 +1,28 @@
 --- @type LazySpec
 return {
+
 	"windwp/nvim-autopairs",
+	dependencies = {
+		"windwp/nvim-ts-autotag",
+		"nvim-treesitter/nvim-treesitter",
+	},
 	event = "InsertEnter",
 	config = function()
 		local npairs = require("nvim-autopairs")
-		npairs.setup({})
+		npairs.setup({
+			check_ts = true,
+		})
+		require("nvim-ts-autotag").setup({
+			filetypes = {
+				"html",
+				"xml",
+				"javascript",
+				"typescript",
+				"javascriptreact",
+				"typescriptreact",
+				"svelte", -- ← REQUIRED
+			},
+		})
 
 		local Rule = require("nvim-autopairs.rule")
 		local cond = require("nvim-autopairs.conds")

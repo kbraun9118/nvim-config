@@ -1,12 +1,12 @@
 --- @type LazySpec
 return {
 	{
-		"rcasia/neotest-java",
-		ft = "java",
-	},
-	{
 		"nvim-neotest/neotest",
 		dependencies = {
+			{
+				"rcasia/neotest-java",
+				ft = "java",
+			},
 			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
@@ -24,6 +24,7 @@ return {
 			"marilari88/neotest-vitest",
 			"rouge8/neotest-rust",
 		},
+		event = "BufEnter",
 		config = function()
 			local neotest = require("neotest")
 			neotest.setup({
@@ -33,8 +34,8 @@ return {
 						runner = "gotestsum",
 					}),
 					require("neotest-rust")({}),
-					require("neotest-jest")({}),
 					require("neotest-vitest")({}),
+					require("neotest-jest")({}),
 					require("neotest-java")({}),
 				},
 				floating = {

@@ -34,6 +34,7 @@ return {
 	},
 	{
 		"jay-babu/mason-nvim-dap.nvim",
+		event = "BufEnter",
 		config = function()
 			require("mason-nvim-dap").setup({
 				handlers = {},

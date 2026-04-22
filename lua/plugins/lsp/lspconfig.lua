@@ -175,7 +175,6 @@ return {
 						vue = { hybridMode = false },
 					},
 				},
-
 				yamlls = {
 					settings = {
 						yaml = {
@@ -184,20 +183,6 @@ return {
 							},
 						},
 					},
-				},
-				svelte = {
-					on_attach = function(client)
-						vim.api.nvim_create_autocmd("BufWritePost", {
-							pattern = { "*.js", "*.ts" },
-							callback = function(ctx)
-								print("here")
-								vim.notify("Here")
-								client:notify("$/onDidChangeTsOrJsFile", {
-									uri = ctx.match,
-								})
-							end,
-						})
-					end,
 				},
 				jsonls = {
 					settings = {
@@ -209,6 +194,13 @@ return {
 						},
 					},
 				},
+				-- gitlab_ci_ls = {
+				-- 	settings = {
+				-- 		gitlabCi = {
+				-- 			schemaUrl = "file://" .. vim.fn.expand("$XDG_CONFIG_HOME/nvim/assets/ci.schema.json"),
+				-- 		},
+				-- 	},
+				-- },
 			}
 
 			for lsp, config in pairs(configs) do
