@@ -156,9 +156,10 @@ return {
 						plugins = {
 							{
 								name = "@vue/typescript-plugin",
-								location = vim.fn.stdpath("data")
-									.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-								languages = { "vue" },
+								location = vim.fn.expand("$MASON/packages")
+									.. "/vue-language-server"
+									.. "/node_modules/@vue/language-server",
+								languages = { "vue", "javascript", "typescript" },
 							},
 						},
 						preferences = {
@@ -166,14 +167,10 @@ return {
 							includeInlayFunctionLikeReturnTypeHints = true,
 						},
 					},
+					filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
 				},
 				denols = {
 					root_markers = { "deno.json", "deno.jsonc" },
-				},
-				vue_ls = {
-					init_options = {
-						vue = { hybridMode = false },
-					},
 				},
 				yamlls = {
 					settings = {

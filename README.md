@@ -27,7 +27,7 @@
   - [lazygit](https://github.com/jesseduffield/lazygit)
   - [nvim-notify](https://github.com/rcarriga/nvim-notify)
   - [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
-  - [barbecue](https://github.com/utilyre/barbecue.nvim)
+  - [dropbar](https://github.com/Bekaboo/dropbar.nvim)
   - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
   - [lualine](https://github.com/nvim-lualine/lualine.nvim)
   - [snacks](https://github.com/folke/snacks.nvim)
