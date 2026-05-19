@@ -11,6 +11,7 @@
   - [conform](https://github.com/stevearc/conform.nvim)
   - [nvim-lint](https://github.com/mfussenegger/nvim-lint)
   - [lazydev](https://github.com/folke/lazydev.nvim)
+  - [refactoring](https://github.com/ThePrimeagen/refactoring.nvim)
 - DAP
   - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
   - [mason-nvim-dap](https://github.com/jay-babu/mason-nvim-dap.nvim)

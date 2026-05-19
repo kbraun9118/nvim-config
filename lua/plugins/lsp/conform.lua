@@ -18,6 +18,7 @@ return {
 				yaml = { "prettierd" },
 				json = { "prettierd" },
 				jsonc = { "prettierd" },
+				xml = { "xmlformatter" },
 				markdown = { "prettierd" },
 				lua = { "stylua" },
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
