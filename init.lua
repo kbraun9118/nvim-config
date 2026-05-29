@@ -19,18 +19,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-		{ import = "plugins.lsp" },
-		{ import = "plugins.treesitter" },
-		{ import = "plugins.ui" },
-		{ import = "plugins.languages.typescript" },
-		{ import = "plugins.test" },
-	},
+	{ import = "plugins" },
+	{ import = "plugins.lsp" },
+	{ import = "plugins.treesitter" },
+	{ import = "plugins.ui" },
+	{ import = "plugins.languages.typescript" },
+	{ import = "plugins.test" },
 }, {
 	checker = {
 		enabled = true,
-		notify = false,
+		notify = true,
 	},
 	ui = {
 		border = "rounded",
