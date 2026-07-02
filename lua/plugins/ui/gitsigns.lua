@@ -1,6 +1,7 @@
 return {
 	"lewis6991/gitsigns.nvim",
 	event = "VeryLazy",
+	--- @type Gitsigns.Config
 	opts = {
 		on_attach = function(bufnr)
 			local gs = require("gitsigns")
@@ -17,5 +18,8 @@ return {
 				gs.nav_hunk("prev")
 			end, { desc = "next hunk" })
 		end,
+		preview_config = {
+			border = "rounded",
+		},
 	},
 }
