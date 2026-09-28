@@ -46,4 +46,3 @@
 - [render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 - [tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [trouble](https://github.com/folke/trouble.nvim)
-- [kulala](https://github.com/mistweaverco/kulala.nvim)
