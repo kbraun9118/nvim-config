@@ -21,6 +21,7 @@
   - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
   - [treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
   - [treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+  - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - UI
   - [bufferline](https://github.com/akinsho/bufferline.nvim)
   - [diffview](https://github.com/sindrets/diffview.nvim)
@@ -32,17 +33,20 @@
   - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
   - [lualine](https://github.com/nvim-lualine/lualine.nvim)
   - [snacks](https://github.com/folke/snacks.nvim)
+  - [render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 - Test
   - [neotest](https://github.com/nvim-neotest/neotest)
+- Language Specific Plugins
+  - Typescript
+    - [package info](https://github.com/vuki656/package-info.nvim)
+    - [ts-error-translate](https://github.com/dmmulroy/ts-error-translator.nvim)
+- Utilities
 - [lazy](https://github.com/folke/lazy.nvim)
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [nvim-surround](https://github.com/kylechui/nvim-surround)
 - [comment](https://github.com/numToStr/Comment.nvim)
 - [which-key](https://github.com/folke/which-key.nvim)
 - [harpoon](https://github.com/ThePrimeagen/harpoon)
-- [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - [flash](https://github.com/folke/flash.nvim)
-- [ts-error-translate](https://github.com/dmmulroy/ts-error-translator.nvim)
-- [render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 - [tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [trouble](https://github.com/folke/trouble.nvim)
