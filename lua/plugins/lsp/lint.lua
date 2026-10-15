@@ -14,8 +14,8 @@ return {
 			vue = { "eslint" },
 			-- css = { "eslint" },
 			-- html = { "eslint" },
-			-- yaml = { "eslint" },
-			-- json = { "eslint" },
+			["yaml.cloudformation"] = { "cfn_lint" },
+			["json.cloudformation"] = { "cfn_lint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

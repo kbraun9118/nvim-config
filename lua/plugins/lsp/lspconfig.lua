@@ -173,15 +173,44 @@ return {
 					root_markers = { "deno.json", "deno.jsonc" },
 				},
 				yamlls = {
+					filetypes = { "yaml", "yaml.cloudformation" },
 					settings = {
 						yaml = {
 							customTags = {
 								"!reference sequence",
+								"!And sequence",
+								"!Base64 scalar",
+								"!Cidr scalar",
+								"!Condition scalar",
+								"!Equals sequence",
+								"!FindInMap sequence",
+								"!GetAZs scalar",
+								"!GetAtt scalar",
+								"!GetAtt sequence",
+								"!If sequence",
+								"!ImportValue scalar",
+								"!Join sequence",
+								"!Not sequence",
+								"!Or sequence",
+								"!Ref scalar",
+								"!Select sequence",
+								"!Split sequence",
+								"!Sub scalar",
+								"!Transform mapping",
+							},
+							schemas = {
+								["https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json"] = {
+									"*.cfn.yaml",
+									"*.cfn.yml",
+									"*.template.yaml",
+									"*.template.yml",
+								},
 							},
 						},
 					},
 				},
 				jsonls = {
+					filetypes = { "json", "jsonc", "json.cloudformation" },
 					settings = {
 						json = {
 							schemas = require("schemastore").json.schemas(),
